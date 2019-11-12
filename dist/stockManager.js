@@ -2,8 +2,9 @@ class StockManager{
     constructor(){
         this.stockData = []
     }
-    async putStockInDB(stock) {
-        let stock = await $.get('/stock/'+stock)
+    async getStockData(input) {
+        let stock = await $.get('/stock/'+ input)
+        this.stockData.push(stock)
     }
     async getDataFromDB(){
         let stocksData = await $.get('/stocks')
