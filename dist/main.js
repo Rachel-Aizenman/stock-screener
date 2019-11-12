@@ -1,4 +1,6 @@
 
+const ratioCalculator= new RatioCalculator();
+const analyzer=new StockAnalyzer();
 const stocksManager = new StockManager
 const renderer = new Renderer
 
@@ -14,6 +16,5 @@ $("#search").on("click",async function () {
 })
 
 const rc= new RatioCalculator();
-const sm = new StockManager()
-sm.getDataFromDB()
+
 
