@@ -32,9 +32,4 @@ function dataCleaner(stock) {
     if(incomeKeys.findIndex(k=>k==="NetIncomeLoss")==-1)
             stock.income["NetIncomeLoss"]=stock.income["profitLoss"]
 
-
-
-
-
-
 }
