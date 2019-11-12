@@ -11,6 +11,18 @@ const stockData = [{
   balanceSheet: "balance-sheet here",
   income: "income here",
   cashFlow: "cash-flow here"
+},  {
+  balanceSheet: "balance-sheet here",
+  income: "income here",
+  cashFlow: "cash-flow here"
+},  {
+  balanceSheet: "balance-sheet here",
+  income: "income here",
+  cashFlow: "cash-flow here"
+},  {
+  balanceSheet: "balance-sheet here",
+  income: "income here",
+  cashFlow: "cash-flow here"
 }]
 
 console.log(stockData)
