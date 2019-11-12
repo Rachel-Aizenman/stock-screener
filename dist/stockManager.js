@@ -9,4 +9,8 @@ class StockManager{
         let stocksData = await $.get('/stocks')
         stocksData.forEach(s=> this.stockData.push(s)) 
     }
+
+    
 }
+
+const rc=ratioCalculator();
