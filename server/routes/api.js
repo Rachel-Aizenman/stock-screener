@@ -43,7 +43,6 @@ router.get('/stock/:Ticker', async function (req, res) {
         priceData = JSON.parse(priceData)
         additionalInfoData = JSON.parse(additionalInfoData)
         tickerData = additionalInfoData.find(a=> a.Symbol===ticker)
-        console.log(tickerData)
     }
     catch (err) {
         console.log(err)
@@ -96,7 +95,7 @@ router.get('/stock/:Ticker', async function (req, res) {
 
     const stock2DB = new Stock(companyData)
     await stock2DB.save()
-    res.send(JSON.stringify(companyData))
+    res.send(companyData)
 })
 
 router.get('/stocks', async function (req,res){
