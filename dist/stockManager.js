@@ -1,0 +1,3 @@
+function getStockData(ticker){
+    
+}
