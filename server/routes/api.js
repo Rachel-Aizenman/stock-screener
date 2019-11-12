@@ -25,16 +25,24 @@ router.get('/stock/:Ticker', async function (req, res) {
             'Ocp-Apim-Subscription-Key': '9d6df703d4f14735afe82789694f959e'
         }
     };
+    let additionalInfoReq = {
+        url:"https://datahub.io/core/s-and-p-500-companies-financials/r/constituents-financials.json"}
     let priceData
     let balanceSheetData
     let incomeData
+    let additionalInfoData
+    let tickerData
     try {
         balanceSheetData = await requestPromise(balanceSheetReq)
         incomeData = await requestPromise(incomeReq)
         priceData = await requestPromise(priceReq)
+        additionalInfoData = await requestPromise(additionalInfoReq)
         balanceSheetData  = JSON.parse(balanceSheetData)
         incomeData  = JSON.parse(incomeData)
         priceData = JSON.parse(priceData)
+        additionalInfoData = JSON.parse(additionalInfoData)
+        tickerData = additionalInfoData.find(a=> a.Symbol===ticker)
+        console.log(tickerData)
     }
     catch (err) {
         console.log(err)
@@ -45,9 +53,9 @@ router.get('/stock/:Ticker', async function (req, res) {
                    balanceSheet: balanceSheetData.Data,
                    income:incomeData.Data,
                    cashFlow:{},
-                   sector:"",
-                   dividend:1,
-                   marketCap:1
+                   sector:tickerData.Sector,
+                   dividend:tickerData["Dividend Yield"],
+                   marketCap:tickerData["Market Cap"]
                 }
     const stock2DB = new Stock(companyData)
     await stock2DB.save()               
