@@ -10,18 +10,18 @@ function ratioCalculator(stock) {
 
     const grossProfit = stock.income.grossProfit // if exists
     const operationalProfit = stock.income.OperationalProfit // if exists
-    const netIncome = stock.income.NetIncome 
+    const netIncome = stock.income.NetIncomeLoss 
     
     
-    ratios[ROE] = netIncome / equity
-    ratios[ROI] = (revenue - costOfGoods) / costOfGoods
+    ratios[ROE] = netIncome / equity || 0
+    ratios[ROI] = (revenue - costOfGoods) / costOfGoods || 0
 
     ratios[PE] = price / netIncome
     ratios[PB] = price / (assets - liabilities)
-    ratios[PS] = price / revenue
+    ratios[PS] = price / revenue 
 
-    ratios[grossProfitMargin] = grossProfit / revenues
-    ratios[operationalProfitMargin] = operationalProfit / revenues
+    ratios[grossProfitMargin] = grossProfit / revenues || null
+    ratios[operationalProfitMargin] = operationalProfit / revenues || null
     ratios[netIncomeMargin] = netIncome / revenues
 
     ratios[debtToEquity] = (liabilities - equity) / equity
