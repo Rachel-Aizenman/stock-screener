@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Stock = require('../model/Stocks')
 const requestPromise = require('request-promise')
-
+const apikey='3180ce8805a04bcbb4827ebf0f6ddc91'
 
 
 router.get('/stock/:Ticker', async function (req, res) {
@@ -10,19 +10,19 @@ router.get('/stock/:Ticker', async function (req, res) {
     let balanceSheetReq = {
         url: "https://services.last10k.com/v1/company/" + ticker + "/balancesheet?formType=10-K&filingOrder=0",
         headers: {
-            'Ocp-Apim-Subscription-Key': 'dafaeb91196a4819aa31f0ea73f48c54'
+            'Ocp-Apim-Subscription-Key': apikey
         }
     };
     let incomeReq = {
         url: "https://services.last10k.com/v1/company/" + ticker + "/income?formType=10-K&filingOrder=0",
         headers: {
-            'Ocp-Apim-Subscription-Key': 'dafaeb91196a4819aa31f0ea73f48c54'
+            'Ocp-Apim-Subscription-Key': apikey
         }
     };
     let priceReq = {
         url: "https://services.last10k.com/v1/company/" + ticker + "/quote",
         headers: {
-            'Ocp-Apim-Subscription-Key': 'dafaeb91196a4819aa31f0ea73f48c54'
+            'Ocp-Apim-Subscription-Key': apikey
         }
     };
     let additionalInfoReq = {
