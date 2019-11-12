@@ -6,7 +6,7 @@ const stockSchema = new Schema({
     price: Number,
     volume:Number,
     balanceSheet:Object,
-    inocome:Object,
+    income:Object,
     cashflow:Object,
     sector: String,
     dividend: Number,

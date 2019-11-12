@@ -25,34 +25,39 @@ router.get('/stock/:Ticker', async function (req, res) {
             'Ocp-Apim-Subscription-Key': 'dafaeb91196a4819aa31f0ea73f48c54'
         }
     };
+    let additionalInfoReq = {
+        url:"https://datahub.io/core/s-and-p-500-companies-financials/r/constituents-financials.json"}
     let priceData
     let balanceSheetData
     let incomeData
+    let additionalInfoData
+    let tickerData
     try {
         balanceSheetData = await requestPromise(balanceSheetReq)
         incomeData = await requestPromise(incomeReq)
         priceData = await requestPromise(priceReq)
-        balanceSheetData = JSON.parse(balanceSheetData)
-        incomeData = JSON.parse(incomeData)
+        additionalInfoData = await requestPromise(additionalInfoReq)
+        balanceSheetData  = JSON.parse(balanceSheetData)
+        incomeData  = JSON.parse(incomeData)
+
         priceData = JSON.parse(priceData)
+        additionalInfoData = JSON.parse(additionalInfoData)
+        tickerData = additionalInfoData.find(a=> a.Symbol===ticker)
+        console.log(tickerData)
     }
     catch (err) {
         console.log(err)
     }
-
-    companyData = {
-        company: balanceSheetData.Company,
-        price: priceData.LastTradePrice,
-        volume: priceData.Volume,
-        balanceSheet: balanceSheetData.Data,
-        income: incomeData.Data,
-        cashFlow: {},
-        sector: "",
-        dividend: 1,
-        marketCap: 1
-    }
-
-
+    companyData = {company:balanceSheetData.Company,
+                   price: priceData.LastTradePrice,
+                   volume: priceData.Volume,
+                   balanceSheet: balanceSheetData.Data,
+                   income:incomeData.Data,
+                   cashFlow:{},
+                   sector:tickerData.Sector,
+                   dividend:tickerData["Dividend Yield"],
+                   marketCap:tickerData["Market Cap"]
+                }
     let balanceKeys = Object.keys(companyData.balanceSheet)
     const incomeKeys = Object.keys(companyData.income)
 
@@ -94,5 +99,9 @@ router.get('/stock/:Ticker', async function (req, res) {
     res.send(JSON.stringify(companyData))
 })
 
+router.get('/stocks', async function (req,res){
+    const stocks = await Stock.find({})
+    res.send(stocks)
+})
 
 module.exports = router
