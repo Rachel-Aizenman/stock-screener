@@ -12,32 +12,48 @@
     <!-- <input placeholder = "what stock are you looking for?">
     <button>Search Stock</button> -->
     </div>  
+   <div><div><div>
+      
+    </div></div></div> 
 
 
 
-    <div id="display-stocks"></div>
 
 <!--  -->
 <div class="hold">
         <div class="header">
           <div class="container">
-            <div id="logo">
-            </div>
-            <ul class="nav">
-              <li><a href="#">Wow</a></li>
-              <li><a href="#">Wow</a></li>
-              <li><a href="#">Wow</a></li>
-              <li><a href="#">Wow</a></li>
-            </ul>
+                <ul class="nav">
+                <li><a href="#">Contact Us</a></li>
+                </ul>
+              <div id="search" href="#">
+                            <form action="#" method="post">
+                                <input type="text" required value="search" onBlur="if(this.value=='')this.value='search'" onFocus="if(this.value=='search')this.value='' "> 
+                                <!-- <input type="hidden" value=""> -->
+                            </form>
+                         
+                        </div>
+            
+            <!-- <ul class="nav"> -->
+                    
+                    
+              <!-- <li><a href="#">Sector</a></li>
+              <li><a href="#">Return</a></li> -->
+              <!-- <form class="search-container"> -->
+                    <!-- <input type="text" ids="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a> -->
+                  <!-- </form> -->
+              <!-- <li><input class="input-box" placeholder="Placeholder Text"></li> -->
+        <!-- <li><div class="call"><span>Search</span></div></li> -->
+            <!-- </ul> -->
           </div>
         </div>
       </div>
       <div class="section">
         <div class="slider">
           <div class="container slidercontent">
-            <h1 class="hero">Wow</h1>
-            <h2 class="hero">Wow.Wow.Wow</h2>
-            <div class="call"><span>Wow</span></div>
+            <h1 class="hero">Fundamental</h1>
+            <h2 class="hero">Stock Screener</h2>
+            
           </div>
         </div>
       </div>
@@ -45,38 +61,42 @@
         <div class="container">
           <div class="col four">
             <h1 class="icon">[]</h1>
-            <h1 class="service">Wow</h1>
-            <p>Wow wow wow wow wow wow wow wow wow wow wow wow wow</p>
+            <!-- <div class="display-stocks"><p>aaa</p></div> -->
+
+            <h1 class="service">Filter</h1>
+            <!-- <p>Wow wow wow wow wow wow wow wow wow wow wow wow wow</p> -->
           </div>
           <div class="col four">
+              
             <h1 class="icon">[]</h1>
-            <h1 class="service">Wow</h1>
-            <p>Wow wow wow wow wow wow wow wow wow</p>
+            <h1 class="service">Market-Cap</h1>
+            <!-- <p>Wow wow wow wow wow wow wow wow wow</p> -->
           </div>
           <div class="responsivegroup"></div>
           <div class="col four">
             <h1 class="icon">[]</h1>
-            <h1 class="service">Wow</h1>
-            <p>Wow wow wow wow wow wow wow wow wow wow wow</p>
+            <h1 class="service">Sector</h1>
+            <!-- <p>Wow wow wow wow wow wow wow wow wow wow wow</p> -->
           </div>
           <div class="col four">
             <h1 class="icon">[]</h1>
-            <h1 class="service">Wow</h1>
-            <p>Wow wow wow wow wow wow wow</p>
+            <h1 class="service">Return</h1>
+            <!-- <p>Wow wow wow wow wow wow wow</p> -->
           </div>
           <div class="group"></div>
         </div>
       </div>
       <div class="section bg">
         <div class="container">
-          <h1>Wow wow</h1>
+          <h1>Stocks:</h1>
           <h2>Wow wow wow!</h2>
-          <div class="col three bg nopad pointer">
+          <div id="display-stocks"></div>
+          <!-- <div class="col three bg nopad pointer">
             <div class="imgholder"></div>
             <h1 class="feature">Wow</h1>
             <p>Wow wow</p>
-          </div>
-          <div class="col three bg nopad pointer">
+          </div> -->
+          <!-- <div class="col three bg nopad pointer">
             <div class="imgholder"></div>
             <h1 class="feature">Wow</h1>
             <p>Wow wow wow</p>
@@ -101,8 +121,8 @@
             <div class="imgholder"></div>
             <h1 class="feature">Wow</h1>
             <p>Wow wow wow</p>
-          </div>
-          <div class="group"></div>
+          </div> -->
+          <!-- <div class="group"></div>
         </div>
       </div>
       <div class="section">
@@ -143,8 +163,8 @@
           <div class="group margin"></div>
         </div>
       </div>
-      <div class="section bg">
-        <div class="container">
+      <div class="section bg"> -->
+        <!-- <div class="container">
           <h1>Wow</h1>
           <h2>Wow wow wow wow</h2>
           <div class="col two bg margin extrapad">
@@ -178,7 +198,7 @@
             <h1 class="service">Wow</h1>
             <p>Wow wow wow wow wow wow wow wow wow wow wow wow wow</p>
           </div>
-          <div class="col two">
+          <div class="col two">/
             <h1 class="icon">[]</h1>
             <h1 class="service">Wow</h1>
             <p>Wow wow wow wow wow wow wow wow wow</p>
@@ -187,9 +207,9 @@
         </div>
       </div>
       <div class="section">
-        <div class="container">
-          <h1 class="reset">Terrible.</h1>
-        </div>
+        <div class="container"> -->
+          <!-- <h1 class="reset">Terrible.</h1>
+        </div> -->
       </div>
       <div class="section">
         <div class="footer">
@@ -225,9 +245,14 @@
     <script id="stocks-template" type="text/x-handlebars-template">
     {{#each stockData}}
     <div id="stock">
-        <div class="balance-sheet">{{balanceSheet}}</div>
-        <div class="income"> {{income}}</div>
-        <div class="cash-flow">{{cashFlow}}</div>
+            <div class="col three bg nopad pointer">
+                    <div class="imgholder"></div>
+                    <h1 class="feature">Stock</h1>
+                    <p class="balance-sheet">{{balanceSheet}}</p>
+                    <p class="income"> {{income}}</p>
+                    <p class="cash-flow">{{cashFlow}}</p>
+                  </div>
+        
     </div>
     {{/each}}
 </script>

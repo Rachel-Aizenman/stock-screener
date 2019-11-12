@@ -1,4 +1,4 @@
-/*
+/* /*
   terrible.css
   Andrew Tunecliffe, 2015
   http://atunnecliffe.com
@@ -18,6 +18,49 @@ body {
   width: 100%;
 }
 
+.search-container{
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+input#search-bar{
+  margin: 0 auto;
+  width: 100%;
+  height: 15px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #D0CFCE;
+  outline: none;
+  &:focus{
+    border: 1px solid #008ABF;
+    transition: 0.35s ease;
+    color: #008ABF;
+    &::-webkit-input-placeholder{
+      transition: opacity 0.45s ease; 
+  	  opacity: 0;
+     }
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease; 
+  	  opacity: 0;
+     }
+    &:-ms-placeholder {
+     transition: opacity 0.45s ease; 
+  	 opacity: 0;
+     }    
+   }
+ }
+
+.search-icon{
+  position: relative;
+  float: right;
+  width: 75px;
+  height: 75px;
+  top: -62px;
+  right: -45px;
+}
+
+
 .container {
   position: relative;
   width: 1170px;
@@ -35,6 +78,30 @@ body {
 
 .section.bg {
   background: #f7f7f7;
+}
+
+#search {
+	/* margin: 5px auto; */
+	width: 180px;
+}
+
+#search form input[type="text"] {
+	background: #343434 url("http://web473.dashosting.de/codepen/images/icon-search-grey.png") 10px center no-repeat;
+	border: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	/* -webkit-box-shadow: inset 1px 1px 1px #242424, inset -1px -1px 1px #565656; */
+	/* -moz-box-shadow: inset 1px 1px 1px #242424, inset -1px -1px 1px #565656; */
+	/* box-shadow: inset 1px 1px 1px #242424, inset -1px -1px 1px #565656; */
+	color: #aaaaaa;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	outline: none;
+	padding: 10px 10px 10px 36px;
+	/* text-shadow: 1px 1px 2px #141414; */
+	width: 100%;
 }
 /*
   Header
@@ -64,15 +131,28 @@ body {
   height: 40px;
 }
 
+.input-box{
+    float: left; 
+    /* width: 0px;  */
+    /* margin: 40px 3%;  */
+    position: relative;} necessary to give position: relative to parent.
+    input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 100%; letter-spacing: 1px;}
+
 #logo {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: red;
+  background:   red;
   float: left;
   height: 40px;
   width: 170px;
   margin-left: 5px;
+}
+
+.search{
+    border-radius: 2px ;
+    color: #333;
+    border-radius: 50%;
 }
 
 ul.nav {
@@ -107,7 +187,10 @@ ul.nav li a {
 
 .section .slider,
 .section .footer {
-  background: #333;
+    background-image: url('https://st3.depositphotos.com/15884134/18829/v/600/depositphotos_188291220-stock-video-black-white-stock-market-ticker.jpg');
+    opacity: 1;
+    background-position: center;
+    background-size: cover;
 }
 
 .slidercontent {
@@ -427,4 +510,10 @@ h2 {
   .group {
     display: none;
   }
-}
+} */
+
+/* .search{
+    border-radius: 5px ;
+    border-color: #333;
+  border-radius: 50%; 
+}  */
