@@ -3,9 +3,10 @@ class StockManager{
         this.stockData = []
     }
     async putStockInDB(stock) {
-        let stock = await $.get('/stocks/'+stock)
-        if (stock) {
-            this.stockData.push(stock)
-        }
+        let stock = await $.get('/stock/'+stock)
+    }
+    async getDataFromDB(){
+        let stocksData = await $.get('/stocks')
+        stocksData.forEach(s=> this.stockData.push(s)) 
     }
 }

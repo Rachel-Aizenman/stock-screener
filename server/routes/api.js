@@ -54,5 +54,9 @@ router.get('/stock/:Ticker', async function (req, res) {
     res.send(JSON.stringify(companyData))
 })
 
+router.get('/stocks', async function (req,res){
+    const stocks = await Stock.find({})
+    res.send(stocks)
+})
 
 module.exports = router
