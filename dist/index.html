@@ -21,9 +21,17 @@
           <li><a href="#">LOGO</a></li>
           <li><div id="search" href="#">
             <form action="#" method="post">
+
               <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
                 onFocus="if(this.value=='search')this.value='' ">
               <input type="hidden" value="">
+
+
+                <button id ="button"></button>
+           
+             <input type="text" id="stockSearch" placeholder="search"> -->
+              
+
             </form>
           </div></li>
         </ul>
@@ -183,31 +191,52 @@
                    <div class="imgholder"></div>
                    <h1 class="feature">Stock</h1>
                    <div class="basicInfo">
-                    <p>{{company}}</p>
-                    <p>{{sector}}</p>
-                    <p>{{price}}</p>
-                    <p>{{volume}}</p>
-                    <p>{{dividend}}</p>
+
+                    <p>Name: {{company}}</p>
+                    <p>Sector: {{sector}}</p>
+                    <p>Price - {{price}}</p>
+                    <p>Volume - {{volume}}</p>
+                    <p>Dividend - {{dividend}}</p>
+
                     </div>
                     <div class="ranking">
-                       <p>{{ranks.return}}</p>
-                        <p>{{ranks.cost}}</p> 
-                        <p> {{ranks.profitability}}</p>
-                        <p>{{ranks.leverage}}</p>
-                        <p>{{ranks.overall}}</p>
+                      <h1>Rankings</h1>
+                       <p>Return - {{ranks.return}}</p>
+                        <p>Cost - {{ranks.cost}}</p> 
+                        <p>Profitability - {{ranks.profitability}}</p>
+                        <p>Leverage - {{ranks.leverage}}</p>
+                        <p>Overall - {{ranks.overall}}</p>
                     </div>
                     <div class="ratios">
-                        <p>{{ratios.grossMargin}}</p>
-                        <p>{{ratios.operatingMargin}}</p> 
+                        <h1>Ratios</h1>
+                        <p>Gross Margin - {{ratios.grossMargin}}</p>
+                        <p>Operating Margin - {{ratios.operatingMargin}}</p> 
                      </div>
+
                  </div>
                  </div>
    {{/each}}
 </script>
-    <script src="display.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script src="./node_modules/jquery/dist/jquery.js"></script>
-    <script src="./node_modules/handlebars/dist/handlebars.js"></script>
+
+                     <div id="graph">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                
+                     </div>
+            </div>
+   </div>
+   {{/each}}
+</script>
+
+
+
+    <!-- scripts -->
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="chart.js/dist/Chart.js"></script>
+
+    <script src="./ratioCalculator.js"></script>
+    <script src="./analyzeStocks.js"></script>
+
     <script src="stockManager.js"></script>
     <script src="render.js"></script>
     <script src="main.js"></script>
