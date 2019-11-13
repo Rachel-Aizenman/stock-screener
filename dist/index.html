@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.min.js"
+    media="screen,projection" />
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,59 +21,125 @@
           <li><a href="#">LOGO</a></li>
           <li><div id="search" href="#">
             <form action="#" method="post">
-              <input type="text" id="stockSearch" placeholder="search">
-              <!-- <input type="hidden" value=""> -->
+              <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
+                onFocus="if(this.value=='search')this.value='' ">
+              <input type="hidden" value="">
             </form>
           </div></li>
-          <li><button id="searchButton">search</button></li>
         </ul>
        
       </div>
     </div>
   </div>
 
+
+
+  
   <!-- banner -->
   <div class="section">
     <div class="slider">
       <div class="container slidercontent">
-        <h1 class="hero">Fundemental</h1>
+        <h1 class="hero">Fundamental</h1>
         <h2 class="hero">Stock Screener</h2>
       </div>
     </div>
   </div>
 
+
+
   <!-- Filter Options -->
   <div class="section">
-    <div class="container">
-      <div class="col four">
-        <h1 class="icon">[]</h1>
+    <div class="container ">
+     
+  
+      <div class="col four dropdown">
+          <h1 class="icon dropbtn">[]</h1>
+          <h1 class="service" id="Return">Return</h1>
+          <div class="dropdown-content">
+            <a href="#">High to Low</a>
+            <a href="#">Low to High</a>
+          </div>
+        </div>
 
-        <h1 class="service">Return</h1>
-      </div>
-      <div class="col four">
-        <h1 class="icon">[]</h1>
-        <h1 class="service">Market-Cap</h1>
-      </div>
-      <div class="responsivegroup"></div>
-      <div class="col four">
-        <h1 class="icon">[]</h1>
-        <h1 class="service">Sector</h1>
-      </div>
-      <div class="col four">
-        <h1 class="icon">[]</h1>
-        <h1 class="service" id="filter">Filter</h1>
-      </div>
+      <div class="col four dropdown">
+          <h1 class="icon dropbtn">[]</h1>
+          <h1 class="service" id="Market-Cap">Cost</h1>
+          <div class="dropdown-content">
+              <a href="#">High to Low</a>
+              <a href="#">Low to High</a>
+
+          </div>
+        </div>
+
+        <div class="col four dropdown">
+            <h1 class="icon dropbtn">[]</h1>
+            <h1 class="service" id="Market-Cap">Profitability</h1>
+            <div class="dropdown-content">
+                <a href="#">High to Low</a>
+                <a href="#">Low to High</a>
+            </div>
+          </div>
+
+          <div class="col four dropdown">
+              <h1 class="icon dropbtn">[]</h1>
+              <h1 class="service" id="filter">Leverage</h1>
+              <div class="dropdown-content">
+                  <a href="#">High to Low</a>
+                  <a href="#">Low to High</a>
+              </div>
+            </div>
+
+          <div class="col four dropdown">
+              <h1 class="icon dropbtn">[]</h1>
+              <h1 class="service" id="Market-Cap">Market-Cap</h1>
+              <div class="dropdown-content">
+                <a href="#">Large</a>
+                <a href="#">Medium</a>
+                <a href="#">Small</a>
+                <a href="#">Micro</a>
+                <a href="#">Med +</a>
+    
+              </div>
+            </div>
+
+
+      <div class="col four dropdown">
+          <h1 class="icon dropbtn">[]</h1>
+          <h1 class="service" id="sector">Sector</h1>
+          <div class="dropdown-content">
+            <a href="#">Energy</a>
+            <a href="#">Materials</a>
+            <a href="#">Industrials</a>
+            <a href="#">Consumer Discretionary</a>
+            <a href="#">Consumer Staples</a>
+            <a href="#">Health Care</a>
+            <a href="#">Financials</a>
+            <a href="#">Information Technology</a>
+            <a href="#">Telecommunication Services</a>
+
+            <a href="#">Utilities</a>
+            <a href="#">Real Estate</a>
+          </div>
+        </div>
+
+      <!-- </div> -->
       <div class="group"></div>
-    </div>
-  </div>
-  <div class="section bg">
-    <div class="container">
+    <!-- </div> -->
+  <!-- </div> -->
 
-<!-- Filter -->
+
+
+ 
+
+<!-- the filters themselves -->
+
+
 
 
       <!-- Render Stocks area -->
-    
+
+      <div class="section bg">
+        <div class="container">
       <h1>Stocks:</h1>
 
       <div id="display-stocks"></div>
@@ -105,9 +173,7 @@
           </div>
           <div class="group"></div>
         </div>
-    </div>
-    <div class="section bg">
-        <div class="container">
+      </div>
 
     <!-- renderer -->
     <script id="stocks-template" type="text/x-handlebars-template">
@@ -117,11 +183,11 @@
                    <div class="imgholder"></div>
                    <h1 class="feature">Stock</h1>
                    <div class="basicInfo">
-                    <p>Name: {{company}}</p>
-                    <p>Sector: {{sector}}</p>
-                    <p>Price: {{price}}</p>
-                    <p>Volume: {{volume}}</p>
-                    <p>Dividend: {{dividend}}</p>
+                    <p>{{company}}</p>
+                    <p>{{sector}}</p>
+                    <p>{{price}}</p>
+                    <p>{{volume}}</p>
+                    <p>{{dividend}}</p>
                     </div>
                     <div class="ranking">
                        <p>{{ranks.return}}</p>
@@ -134,25 +200,17 @@
                         <p>{{ratios.grossMargin}}</p>
                         <p>{{ratios.operatingMargin}}</p> 
                      </div>
-                     <div>
-                         {{graph}}
-                     </div>
-            </div>
-   </div>
+                 </div>
+                 </div>
    {{/each}}
 </script>
-
-
-
-    <!-- scripts -->
-    <script src="./handlebars/dist/handlebars.js"></script>
-    <script src="./jquery/dist/jquery.js"></script>
-    <script src="./ratioCalculator.js"></script>
-    <script src="./analyzeStocks.js"></script>
+    <script src="display.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/handlebars/dist/handlebars.js"></script>
     <script src="stockManager.js"></script>
     <script src="render.js"></script>
     <script src="main.js"></script>
-
 
 
 </body>
