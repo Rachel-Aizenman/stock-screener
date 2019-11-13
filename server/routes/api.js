@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Stock = require('../model/Stocks')
 const requestPromise = require('request-promise')
-const apikey = '9d6df703d4f14735afe82789694f959e'
+const apikey = 'b9cd9389ec1343d28ea7c9eb4de0d543'
 
 
 router.get('/stock/:Ticker', async function (req, res) {

@@ -219,16 +219,25 @@
    <div id="stock">
            <div class="col three bg nopad pointer">
                    <div class="imgholder"></div>
-                     <p>{{company}}</p>
-                      <p>{{price}}</p>
-            <p>{{volume}}</p>
-            <p>{{{json balanceSheet}}}</p>
-      <p>{{{json income}}}</p>
-      <p>{{cashflow}}</p>
-      <p>{{sector}}</p>
-      <p>{{dividend}}</p>
-      <p>{{marketCap}}</p>
-                   </div>
+                   <div class="basicInfo">
+                    <p>{{company}}</p>
+                    <p>{{sector}}</p>
+                    <p>{{price}}</p>
+                    <p>{{volume}}</p>
+                    <p>{{dividend}}</p>
+                    </div>
+                    <div class="ranking">
+                       <p>{{ranks.return}}</p>
+                        <p>{{ranks.cost}}</p> 
+                        <p> {{ranks.profitability}}</p>
+                        <p>{{ranks.leverage}}</p>
+                        <p>{{ranks.overall}}</p>
+                    </div>
+                    <div class="ratios">
+                        <p>{{ratios.grossMargin}}</p>
+                        <p>{{ratios.operatingMargin}}</p> 
+                     </div>
+            </div>
    </div>
    {{/each}}
 </script>
