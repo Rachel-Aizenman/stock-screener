@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -28,7 +28,7 @@
                </ul>
              <div id="search" href="#">
                            <form action="#" method="post">
-                               <input type="text" required value="search" onBlur="if(this.value=='')this.value='search'" onFocus="if(this.value=='search')this.value='' "> 
+                               <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'" onFocus="if(this.value=='search')this.value='' "> 
                                <!-- <input type="hidden" value=""> -->
                            </form>
                        </div>
@@ -58,7 +58,7 @@
            <h1 class="icon">[]</h1>
            <!-- <div class="display-stocks"><p>aaa</p></div> -->
            
-           <h1 class="service">Filter</h1>
+           <h1 class="service">Return</h1>
            <!-- <p>Wow wow wow wow wow wow wow wow wow wow wow wow wow</p> -->
          </div>
          <div class="col four">
@@ -74,7 +74,7 @@
          </div>
          <div class="col four">
            <h1 class="icon">[]</h1>
-           <h1 class="service">Return</h1>
+           <h1 class="service" id="filter">Filter</h1>
            <!-- <p>Wow wow wow wow wow wow wow</p> -->
          </div>
          <div class="group"></div>
