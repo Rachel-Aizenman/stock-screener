@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.js"
-    media="screen,projection" />
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,11 +19,11 @@
           <li><a href="#">LOGO</a></li>
           <li><div id="search" href="#">
             <form action="#" method="post">
-              <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
-                onFocus="if(this.value=='search')this.value='' ">
-              <input type="hidden" value="">
+              <input type="text" id="stockSearch" placeholder="search">
+              <!-- <input type="hidden" value=""> -->
             </form>
           </div></li>
+          <li><button id="searchButton">search</button></li>
         </ul>
        
       </div>
@@ -143,10 +141,8 @@
 
 
     <!-- scripts -->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script src="jquery/dist/jquery.js"></script>
-    <script src="http://cdn.jsdelivr.net/jquery.flot/0.8.3/jquery.flot.min.js"></script>
-    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="./ratioCalculator.js"></script>
     <script src="./analyzeStocks.js"></script>
     <script src="stockManager.js"></script>
