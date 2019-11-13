@@ -1,24 +1,18 @@
-// const stockManager = new stockManager()
-// const renderer = new Renderer()
+const ratioCalculator= new RatioCalculator();
+const analyzer=new StockAnalyzer();
+const stocksManager = new StockManager();
+const renderer = new Renderer
 
-const handleSearch = function(){
-    const ticker = $('input').val()
-    getStockData(ticker)
+const handleSearch = async function(){
+    let input = $("#search-input").val()
+    $("#search-input").val("") 
+    await stocksManager.getStockData(input)
+    renderer.renderData(stocksManager.stockData)
 }
 
-$('#stockSearch').keypress(function (e) {
-    const keyCode = e.keyCode || e.which;
-    console.log(keyCode)
-
-    if (keyCode == 13) {
-        console.log('keypress worked!')
-    handleSearch()
-}})
-
-// const handleFilter = function(){
-// const //version 2 stuff    
-// }
-
-$('#filter').on('click', function(){
-    handleFilter()
+$("#search").on("click",async function () {
+    await handleSearch()
 })
+const rc= new RatioCalculator();
+
+
