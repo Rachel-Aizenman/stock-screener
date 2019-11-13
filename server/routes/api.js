@@ -28,22 +28,38 @@ router.get('/stock/:Ticker', async function (req, res) {
     let additionalInfoReq = {
         url: "https://datahub.io/core/s-and-p-500-companies-financials/r/constituents-financials.json"
     }
+    let graphReq = {
+        url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-charts',
+        qs: {
+          region: 'US',
+          lang: 'en',
+          symbol: ticker,
+          interval: '5m',
+          range: '1d'
+        },
+        headers: {
+          'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com',
+          'x-rapidapi-key': '58436f64b0msh35def4d22f5460ep1c0eedjsn0dc165d2a980'
+        }
+      };
     let priceData
     let balanceSheetData
     let incomeData
     let additionalInfoData
     let tickerData
+    let graphData
     try {
         balanceSheetData = await requestPromise(balanceSheetReq)
         incomeData = await requestPromise(incomeReq)
         priceData = await requestPromise(priceReq)
         additionalInfoData = await requestPromise(additionalInfoReq)
+        graphData = await requestPromise(graphReq)
         balanceSheetData = JSON.parse(balanceSheetData)
         incomeData = JSON.parse(incomeData)
-
         priceData = JSON.parse(priceData)
         additionalInfoData = JSON.parse(additionalInfoData)
         tickerData = additionalInfoData.find(a => a.Symbol === ticker)
+        graphData = JSON.parse(graphData)
     }
     catch (err) {
         console.log(err)
@@ -56,6 +72,7 @@ router.get('/stock/:Ticker', async function (req, res) {
         income: incomeData.Data,
         cashFlow: {},
         sector: tickerData.Sector,
+        graph: graphData,
         dividend: tickerData["Dividend Yield"],
         marketCap: tickerData["Market Cap"]
     }
