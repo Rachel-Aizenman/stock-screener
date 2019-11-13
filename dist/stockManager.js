@@ -9,6 +9,7 @@ class StockManager {
         let stock = await $.get('/stock/'+ input)
         stock["ratios"]=ratioCalculator.calculateRatios(stock)
         stock["ranks"]=analyzer.analyzeStock(stock)
+        $.plot("#display-stocks",this.stockData.graphData)
         this.stockData.push(stock)
     }
     async getDataFromDB() {
