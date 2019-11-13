@@ -7,7 +7,8 @@ const apikey = 'b984a472dfd64e209860a6d9ca936a85'
 
 router.get('/stock/:Ticker', async function (req, res) {
     let ticker = req.params.Ticker
-    if(await Stock.find({"ticker":ticker})){
+    const data=await Stock.find({"ticker":ticker});
+    if(data.length!=0){
         res.end()
     }
     else{
