@@ -7,6 +7,10 @@ const apikey = 'b984a472dfd64e209860a6d9ca936a85'
 
 router.get('/stock/:Ticker', async function (req, res) {
     let ticker = req.params.Ticker
+    if(await Stock.find({"ticker":ticker})){
+        res.end()
+    }
+    else{
     let balanceSheetReq = {
         url: "https://services.last10k.com/v1/company/" + ticker + "/balancesheet?formType=10-K&filingOrder=0",
         headers: {
@@ -64,7 +68,8 @@ router.get('/stock/:Ticker', async function (req, res) {
     catch (err) {
         console.log(err)
     }
-    companyData = {
+    let companyData = {
+        ticker: ticker,
         company: balanceSheetData.Company,
         price: priceData.LastTradePrice,
         volume: priceData.Volume,
@@ -72,9 +77,9 @@ router.get('/stock/:Ticker', async function (req, res) {
         income: incomeData.Data,
         cashFlow: {},
         sector: tickerData.Sector,
-        graph: graphData.chart.result[0].indicators.quote[0].open,
         dividend: tickerData["Dividend Yield"],
-        marketCap: tickerData["Market Cap"]
+        marketCap: tickerData["Market Cap"],
+        graph: graphData.chart.result[0].indicators.quote[0].open
     }
     let balanceKeys = Object.keys(companyData.balanceSheet)
     const incomeKeys = Object.keys(companyData.income)
@@ -128,6 +133,7 @@ router.get('/stock/:Ticker', async function (req, res) {
     const stock2DB = new Stock(companyData)
     await stock2DB.save()
     res.send(companyData)
+    }
 })
 
 router.get('/stocks', async function (req, res) {

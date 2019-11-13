@@ -20,16 +20,18 @@
         <ul class="nav">
           <li><a href="#">LOGO</a></li>
           <li><div id="search" href="#">
+              <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
+              onFocus="if(this.value=='search')this.value='' ">
+            <input type="hidden" value="">
+            <li> <button id ="button">  Search </button></li>
             <form action="#" method="post">
 
-              <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
-                onFocus="if(this.value=='search')this.value='' ">
-              <input type="hidden" value="">
+          
 
 
-                <button id ="button"></button>
+               
            
-             <input type="text" id="stockSearch" placeholder="search"> -->
+             <!-- <input type="text" id="stockSearch" placeholder="search"> -->
               
 
             </form>
@@ -148,7 +150,7 @@
 
       <div class="section bg">
         <div class="container">
-      <h1>Stocks:</h1>
+      <h1>Your Stocks</h1>
 
       <div id="display-stocks"></div>
     </div>
@@ -159,25 +161,23 @@
         <div class="container white">
           <div class="col four left">
             <h1>What?</h1>
-            <p>...............</p>
-            <p>...............</p>
-            <p>...............</p>
+            <p class="font">A fundamental analysis stock screener!</p>
+            <p class="font">Just put your  favorite stock ticker and let the analysis begin!</p>
           </div>
           <div class="col four left">
             <h1>How?</h1>
-            <p>...............</p>
-            <p>...............</p>
-            <p>...............</p>
+            <p class="font">Using databases and fundamental analysis tools, we make your stock picking much easier.</p>
           </div>
           <div class="col four left">
             <h1>Why?</h1>
-            <p>...............</p>
-            <p>...............</p>
+            <p class="font">Through the power of code, we dicided to develop a tool for us investors to make our lives easier. </p>
+            
           </div>
           <div class="col four left">
             <h1>Who?</h1>
-            <p>...............</p>
-            <p>...............</p>
+            <p class="font">Dudi</p>
+            <p class="font">Racheli</p>
+            <p class="font">Noam</p>
           </div>
           <div class="group"></div>
         </div>
@@ -187,44 +187,49 @@
     <script id="stocks-template" type="text/x-handlebars-template">
    {{#each stockData}}
    <div id="stock">
-           <div class="col three bg nopad pointer">
-                   <div class="imgholder"></div>
-                   <h1 class="feature">Stock</h1>
-                   <div class="basicInfo">
+           <div class="col two bg nopad pointer">
+              <h1 class="feature">{{company}}</h1>
+              <div id="graph">
+                  <canvas id="myChart-{{ticker}}" width="400" height="400"></canvas>
+          
+               </div>
+                   <div class ="flex-container">
+                   <div class="basicInfo six card">
 
-                    <p>Name: {{company}}</p>
-                    <p>Sector: {{sector}}</p>
-                    <p>Price - {{price}}</p>
-                    <p>Volume - {{volume}}</p>
-                    <p>Dividend - {{dividend}}</p>
+                    <h1>Basic Info</h1>
+                    <p class="font">Sector: {{sector}}</p>
+                    <p class="font">Price - {{price}}</p>
+                    <p class="font">Volume - {{volume}}</p>
+                    <p class="font">Dividend - {{dividend}}</p>
 
                     </div>
-                    <div class="ranking">
-                      <h1>Rankings</h1>
-                       <p>Return - {{ranks.return}}</p>
-                        <p>Cost - {{ranks.cost}}</p> 
-                        <p>Profitability - {{ranks.profitability}}</p>
-                        <p>Leverage - {{ranks.leverage}}</p>
-                        <p>Overall - {{ranks.overall}}</p>
-                    </div>
-                    <div class="ratios">
-                        <h1>Ratios</h1>
-                        <p>Gross Margin - {{ratios.grossMargin}}</p>
-                        <p>Operating Margin - {{ratios.operatingMargin}}</p> 
+                 
+                    <div class="ratios card">
+                        <h1>Financial Ratios</h1>
+                        <p class="font">ROE - {{ratios.ROE}}</p>
+                        <p class="font">ROI - {{ratios.ROI}}</p>
+                        <p class="font">PE - {{ratios.PE}}</p>
+                        <p class="font">PB - {{ratios.PB}}</p>
+                        <p class="font">PS - {{ratios.PS}}</p>
+                        <!-- <p class="font">Gross Margin - {{ratios.grossMargin}}</p> -->
+                        <!-- <p class="font">Operating Margin - {{ratios.operatingMargin}}</p> -->
+                        <!-- <p class="font">Profit Margin - {{ratios.profitMargin}}</p> -->
+                        <p class="font">Debt To Equity - {{ratios.debtToEquity}}</p>
+                        <p class="font">Long Term Debt To Equity - {{ratios.LongTermDebtToEquity}}</p>
                      </div>
-
+                     <div class="ranking card">
+                        <h1>Rankings</h1>
+                         <p class="font">Return - {{ranks.return}}</p>
+                          <p class="font">Cost - {{ranks.cost}}</p> 
+                          <p class="font">Profitability - {{ranks.profitability}}</p>
+                          <p class="font">Leverage - {{ranks.leverage}}</p>
+                          <p class="font">Overall - {{ranks.overall}}</p>
+                      </div>
+                      </div>
                  </div>
                  </div>
    {{/each}}
-</script>
 
-                     <div id="graph">
-                        <canvas id="myChart" width="400" height="400"></canvas>
-                
-                     </div>
-            </div>
-   </div>
-   {{/each}}
 </script>
 
 

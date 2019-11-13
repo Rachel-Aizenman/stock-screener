@@ -117,7 +117,16 @@ input#search-bar{
 .hold {
   height: 80px;
 }
+.card{
+  display: flex;
+    width: 200px;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.flex-container{
+  display:flex;
+}
 .header {
   line-height: 80px;
   width: 100%;
@@ -404,7 +413,11 @@ h2 {
   font-weight: 400;
   font-size: 18px;
 }
-
+.font{
+  font-size: 12px;
+  font-weight:bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .left,
 .left > h1,
 .left > p {
