@@ -1,13 +1,3 @@
-/* /*
-  terrible.css
-  Andrew Tunecliffe, 2015
-  http://atunnecliffe.  com
-*/
-/* uncomment to see outlines of stuff when you hover *-/
-:hover {
-  background:rgba(0, 0, 0, 0.1);
-}/**/
-
 html,
 body {
   margin: 0;
@@ -25,6 +15,7 @@ body {
 }
 
 input#search-bar{
+  background-color: #F44336;
   margin: 0 auto;
   width: 100%;
   height: 15px;
@@ -32,19 +23,19 @@ input#search-bar{
   font-size: 1rem;
   border: 1px solid #D0CFCE;
   outline: none;
-  &:focus{
+  :focus{
     border: 1px solid #008ABF;
     transition: 0.35s ease;
     color: #008ABF;
-    &::-webkit-input-placeholder{
+    :-webkit-input-placeholder{
       transition: opacity 0.45s ease; 
   	  opacity: 0;
      }
-    &::-moz-placeholder {
+    :-moz-placeholder {
       transition: opacity 0.45s ease; 
   	  opacity: 0;
      }
-    &:-ms-placeholder {
+    :-ms-placeholder {
      transition: opacity 0.45s ease; 
   	 opacity: 0;
      }    
@@ -92,15 +83,11 @@ input#search-bar{
 	-moz-border-radius: 3px;
 	-o-border-radius: 3px;
 	border-radius: 3px;
-	/* -webkit-box-shadow: inset 1px 1px 1px #242424, inset -1px -1px 1px #565656; */
-	/* -moz-box-shadow: inset 1px 1px 1px #242424, inset -1px -1px 1px #565656; */
-	/* box-shadow: inset 1px 1px 1px #242424, inset -1px -1px 1px #565656; */
 	color: #aaaaaa;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	outline: none;
 	padding: 10px 10px 10px 36px;
-	/* text-shadow: 1px 1px 2px #141414; */
 	width: 100%;
 }
 /*
@@ -127,15 +114,12 @@ input#search-bar{
   box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.8);
 }
 
-
 .header.small > .container > #logo {
   height: 40px;
 }
 
 .input-box{
     float: left; 
-    /* width: 0px;  */
-    /* margin: 40px 3%;  */
     position: relative;} necessary to give position: relative to parent.
     input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 100%; letter-spacing: 1px;}
 
@@ -157,7 +141,7 @@ input#search-bar{
 }
 
 ul.nav {
-  float: right;
+  float: left;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -182,6 +166,42 @@ ul.nav li a {
   color: initial;
   text-decoration: initial;
 }
+
+ul.nav li form input {
+  padding: 21px;
+  color: blue;
+  text-decoration: initial;
+}
+
+nput#search{
+  background-color: #F44336;
+  margin: 0 auto;
+  width: 100%;
+  height: 15px;
+  padding: 0 20px;
+  font-size: 1rem;
+  border: 1px solid #D0CFCE;
+  outline: none;
+  &:focus{
+    border: 1px solid #008ABF;
+    transition: 0.35s ease;
+    color: #008ABF;
+    &::-webkit-input-placeholder{
+      transition: opacity 0.45s ease; 
+  	  opacity: 0;
+     }
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease; 
+  	  opacity: 0;
+     }
+    &:-ms-placeholder {
+     transition: opacity 0.45s ease; 
+  	 opacity: 0;
+     }    
+   }
+ }
+
+
 /*
   Slider
 */
@@ -242,6 +262,7 @@ h1.hero:after {
   background: rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
+
 /* 
   Columns 
 */
