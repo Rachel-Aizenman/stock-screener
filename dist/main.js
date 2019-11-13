@@ -5,8 +5,6 @@ const renderer = new Renderer
 
 const handleSearch = async function () {
     let input = $("#stockSearch").val()
-    console.log(input)
-
     $("#stockSearch").val("")
     await stocksManager.getStockData(input)
     renderer.renderData(stocksManager.stockData)
@@ -15,7 +13,6 @@ const handleSearch = async function () {
 let input = $("#stockSearch").val()
 
 $("#searchButton").on('click', async function () {
- console.log("A")
     handleSearch()
 })
 
