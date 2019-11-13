@@ -32,5 +32,9 @@
     "url": "https://github.com/Rachel-Aizenman/stock-screener/issues"
   },
   "homepage": "https://github.com/Rachel-Aizenman/stock-screener#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.16.0"
+  }
 }
