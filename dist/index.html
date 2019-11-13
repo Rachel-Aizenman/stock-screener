@@ -6,14 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="style.css">
-</head>
+
 </head>
 
 <body>
+    <input type="text" id="search-input" class="interface" placeholder="Which stock do you want to analyze?">
+    <button id="search" class="interface">Get stock data</button>
+  <div id="display-stocks"></div>
     <div class="fixed nav-bar">
         <!-- <input placeholder = "what stock are you looking for?">
     <button>Search Stock</button> -->
+
+
+<!-- footer -->
+      </div>
+      <div class="section">
+
     </div>
 
 
@@ -160,6 +173,7 @@
 
     </div>
     <div class="section">
+
         <div class="footer">
             <div class="container white">
                 <div class="col four left">
@@ -194,38 +208,42 @@
                 <div class="group"></div>
             </div>
         </div>
-    </div>
-    <!--  -->
 
-    <script id="stocks-template" type="text/x-handlebars-template">
-    {{#each stockData}}
-    <div id="stock">
-    <div>{{company}}</div>
-    <div>{{price}}</div>
-    <div>{{volume}}</div>
-    <div>{{{json balanceSheet}}}</div>
-    <div>{{{json income}}}</div>
-    <div>{{cashflow}}</div>
-    <div>{{sector}}</div>
-    <div>{{dividend}}</div>
-    <div>{{marketCap}}</div>
-    </div>
-    {{/each}}
-    </script>
-    <input type="text" id="search-input" class="interface" placeholder="Which stock do you want to analyze?">
-    <button id="search" class="interface">Get stock data</button>
-    <div id="display-stocks"></div>
+      </div>
 
 
+ <!-- renderer -->
+   <script id="stocks-template" type="text/x-handlebars-template">
+   {{#each stockData}}
+   <div id="stock">
+           <div class="col three bg nopad pointer">
+                   <div class="imgholder"></div>
+                     <p>{{company}}</p>
+                      <p>{{price}}</p>
+            <p>{{volume}}</p>
+            <p>{{{json balanceSheet}}}</p>
+      <p>{{{json income}}}</p>
+      <p>{{cashflow}}</p>
+      <p>{{sector}}</p>
+      <p>{{dividend}}</p>
+      <p>{{marketCap}}</p>
+                   </div>
+   </div>
+   {{/each}}
+</script>
+      
 
-    <script src="jquery/dist/jquery.js"></script>
-    <script src="handlebars/dist/handlebars.js"></script>
-    <script src="./ratioCalculator.js"></script>
+
+<!-- scripts -->
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/handlebars/dist/handlebars.js"></script>
+  <script src="./ratioCalculator.js"></script>
     <script src="./analyzeStocks.js"></script>
-    <script src="./stockManager.js"></script>
-    <script src= "./render.js"></script>
-    <script src="./main.js"></script>
-    
+<script src="stockManager.js"></script>
+<script src= "render.js"></script>
+<script src="main.js"></script>
+
 
 
 </body>

@@ -1,7 +1,6 @@
 {
   "name": "dist",
   "version": "1.0.0",
-  "description": "",
   "main": "render.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +9,9 @@
   "license": "ISC",
   "dependencies": {
     "handlebars": "^4.5.1",
-    "jquery": "^3.4.1"
-  }
+    "jquery": "^3.4.1",
+    "materialize-css": "^1.0.0-rc.2"
+  },
+  "devDependencies": {},
+  "description": ""
 }

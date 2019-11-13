@@ -1,7 +1,7 @@
 /* /*
   terrible.css
   Andrew Tunecliffe, 2015
-  http://atunnecliffe.com
+  http://atunnecliffe.  com
 */
 /* uncomment to see outlines of stuff when you hover *-/
 :hover {
@@ -127,6 +127,7 @@ input#search-bar{
   box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.8);
 }
 
+
 .header.small > .container > #logo {
   height: 40px;
 }
@@ -187,7 +188,7 @@ ul.nav li a {
 
 .section .slider,
 .section .footer {
-    background-image: url('https://st3.depositphotos.com/15884134/18829/v/600/depositphotos_188291220-stock-video-black-white-stock-market-ticker.jpg');
+    background-image: url('https://st3.depositphotos.com/15884134/18828/v/600/depositphotos_188284354-stock-video-black-white-stock-market-ticker.jpg');
     opacity: 1;
     background-position: center;
     background-size: cover;
@@ -510,10 +511,17 @@ h2 {
   .group {
     display: none;
   }
-} */
+} 
 
 /* .search{
     border-radius: 5px ;
     border-color: #333;
   border-radius: 50%; 
 }  */
+
+.wrapper{
+  padding: 3vmin;
+  display: grid;
+  justify-content: center;
+  grid-gap: 3vmin;
+}
