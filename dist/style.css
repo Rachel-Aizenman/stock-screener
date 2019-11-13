@@ -53,22 +53,18 @@ input#search-bar{
   background: #f7f7f7;
 }
 /* filter drop down */
-/* .dropbtn {
-  /* background-color: #4CAF50; */
-  /* color: white; */
-  /* padding: 16px; */
-  /* font-size: 16px; */
-  /* border: none; */
-/* } */ 
+
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
+  left:0px;
+  top:90px;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -82,11 +78,14 @@ input#search-bar{
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+/* .dropdown:hover .dropbtn { */
+  /* background-color: #3e8e41;} */
 
 
 /*  */
@@ -260,9 +259,11 @@ h1.hero:after {
   position: relative;
 }
 
-.col.four {
-  width: 23%;
-  margin: 0 1%;
+.col.six {
+  /* width: 15%; */
+  margin: 1%;
+  
+  display: flex;
 }
 
 .col.three {
