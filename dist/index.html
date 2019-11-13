@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.js"
-    media="screen,projection" />
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,12 +19,18 @@
           <li><a href="#">LOGO</a></li>
           <li><div id="search" href="#">
             <form action="#" method="post">
+
                 <button id ="button"></button>
               <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
                 onFocus="if(this.value=='search')this.value='' ">
               <input type="hidden" value="">
+
+<!--               <input type="text" id="stockSearch" placeholder="search"> -->
+              
+
             </form>
           </div></li>
+          <li><button id="searchButton">search</button></li>
         </ul>
        
       </div>
@@ -70,7 +74,11 @@
   <div class="section bg">
     <div class="container">
 
+<!-- Filter -->
+
+
       <!-- Render Stocks area -->
+    
       <h1>Stocks:</h1>
 
       <div id="display-stocks"></div>
@@ -150,6 +158,7 @@
     <script src="jquery/dist/jquery.js"></script>
     <script src="handlebars/dist/handlebars.js"></script>
     <script src="chart.js/dist/Chart.js"></script>
+
     <script src="./ratioCalculator.js"></script>
     <script src="./analyzeStocks.js"></script>
     <script src="stockManager.js"></script>
