@@ -77,7 +77,6 @@ input#search-bar{
 }
 
 #search form input[type="text"] {
-	background: #343434 url("http://web473.dashosting.de/codepen/images/icon-search-grey.png") 10px center no-repeat;
 	border: none;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
