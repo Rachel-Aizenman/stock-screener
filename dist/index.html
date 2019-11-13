@@ -1,150 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.css"  media="screen,projection"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.js"
+    media="screen,projection" />
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class = "fixed nav-bar">
-    <!-- <input placeholder = "what stock are you looking for?">
-    <button>Search Stock</button> -->
-  </div>  
-  <div><div><div>
-   </div></div></div> 
-<!--  -->
-
-<div class="hold">
-       <div class="header">
-         
-         <div class="container">
-               <ul class="nav">
-               <li><a href="#">Contact Us</a></li>
-               </ul>
-             <div id="search" href="#">
-                           <form action="#" method="post">
-                               <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'" onFocus="if(this.value=='search')this.value='' "> 
-                               <!-- <input type="hidden" value=""> -->
-                           </form>
-                       </div>
-           <!-- <ul class="nav"> -->
-             <!-- <li><a href="#">Sector</a></li>
+  <div class="fixed nav-bar">
+  <div class="hold">
+    <div class="header">
+      <div class="container">
+        <ul class="nav">
+          <li><a href="#">Contact Us</a></li>
+          <li><div id="search" href="#">
+            <form action="#" method="post">
+              <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
+                onFocus="if(this.value=='search')this.value='' ">
+              <!-- <input type="hidden" value=""> -->
+            </form>
+          </div></li>
+        </ul>
+       
+        <!-- <ul class="nav"> -->
+        <!-- <li><a href="#">Sector</a></li>
              <li><a href="#">Return</a></li> -->
-             <!-- <form class="search-container"> -->
-                   <!-- <input type="text" ids="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a> -->
-                 <!-- </form> -->
-             <!-- <li><input class="input-box" placeholder="Placeholder Text"></li> -->
-       <!-- <li><div class="call"><span>Search</span></div></li> -->
-           <!-- </ul> -->
-         </div>
-       </div>
-     </div>
-     <div class="section">
-       <div class="slider">
-         <div class="container slidercontent">
-           <h1 class="hero">Fundamental</h1>
-           <h2 class="hero">Stock Screener</h2>
-         </div>
-       </div>
-     </div>
-     <div class="section">
-       <div class="container">
-         <div class="col four">
-           <h1 class="icon">[]</h1>
-           <!-- <div class="display-stocks"><p>aaa</p></div> -->
-           
-           <h1 class="service">Return</h1>
-           <!-- <p>Wow wow wow wow wow wow wow wow wow wow wow wow wow</p> -->
-         </div>
-         <div class="col four">
-           <h1 class="icon">[]</h1>
-           <h1 class="service">Market-Cap</h1>
-           <!-- <p>Wow wow wow wow wow wow wow wow wow</p> -->
-         </div>
-         <div class="responsivegroup"></div>
-         <div class="col four">
-           <h1 class="icon">[]</h1>
-           <h1 class="service">Sector</h1>
-           <!-- <p>Wow wow wow wow wow wow wow wow wow wow wow</p> -->
-         </div>
-         <div class="col four">
-           <h1 class="icon">[]</h1>
-           <h1 class="service" id="filter">Filter</h1>
-           <!-- <p>Wow wow wow wow wow wow wow</p> -->
-         </div>
-         <div class="group"></div>
-       </div>
-     </div>
-     <div class="section bg">
-       <div class="container">
-         <h1>Stocks:</h1>
-         <h2>Wow wow wow!</h2>
-         <div class="wrapper">
-         
-        </div>
-         <div id="display-stocks"></div>
-
-<!-- footer -->
+        <!-- <form class="search-container"> -->
+        <!-- <input type="text" ids="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a> -->
+        <!-- </form> -->
+        <!-- <li><input class="input-box" placeholder="Placeholder Text"></li> -->
+        <!-- <li><div class="call"><span>Search</span></div></li> -->
+        <!-- </ul> -->
       </div>
-      <div class="section">
-        <div class="footer">
-          <div class="container white">
-            <div class="col four left">
-              <h1>What?</h1>
-              <p>So that's it. This started out as 20 minutes of making fun of modern web dev. Then it turned into a few hours of it.</p>
-              <p>I hope you've enjoyed looking at every modern website ever.</p>
-              <p>I don't actually hate this style as long as the content is meaningful. In fact, I think this type of design is pretty cool and effective.</p>
-            </div>
-            <div class="col four left">
-              <h1>How?</h1>
-              <p>CSS3 and HTML. JS for header shrinking; optional. Site works perfectly with JS disabled (another gripe of mine with modern web dev).</p>
-              <p>Only external libraries are GFonts.</p>
-              <p>Moderately responsive, should work on anything modern.</p>
-            </div>
-            <div class="col four left">
-              <h1>Why?</h1>
-              <p>Many popular HTML themes have thousands of lines of HTML, thousands of lines of CSS and several JS plugins on every page amounting to tens of thousands of lines of JavaScript.</p>
-              <p>I fail to see a valid reason for this, particularly the horrendous line counts that are usually due to unused features or badly designed code.</p>
-            </div>
-            <div class="col four left">
-              <h1>Who?</h1>
-              <p>I'm Andrew.</p>
-              <p>You can get in touch with me through <a href="http://atunnecliffe.com">http://atunnecliffe.com</a> or <a href="mailto:andrew@atunnecliffe.com">emailing me</a>.</p>
-            </div>
-            <div class="group"></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="slider">
+      <div class="container slidercontent">
+        <h1 class="hero">Fundamental</h1>
+        <h2 class="hero">Stock Screener</h2>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="col four">
+        <h1 class="icon">[]</h1>
+
+        <h1 class="service">Return</h1>
+        <!-- <p>Wow wow wow wow wow wow wow wow wow wow wow wow wow</p> -->
+      </div>
+      <div class="col four">
+        <h1 class="icon">[]</h1>
+        <h1 class="service">Market-Cap</h1>
+        <!-- <p>Wow wow wow wow wow wow wow wow wow</p> -->
+      </div>
+      <div class="responsivegroup"></div>
+      <div class="col four">
+        <h1 class="icon">[]</h1>
+        <h1 class="service">Sector</h1>
+        <!-- <p>Wow wow wow wow wow wow wow wow wow wow wow</p> -->
+      </div>
+      <div class="col four">
+        <h1 class="icon">[]</h1>
+        <h1 class="service" id="filter">Filter</h1>
+        <!-- <p>Wow wow wow wow wow wow wow</p> -->
+      </div>
+      <div class="group"></div>
+    </div>
+  </div>
+  <div class="section bg">
+    <div class="container">
+      <h1>Stocks:</h1>
+
+      <div id="display-stocks"></div>
+
+
+      <!-- footer -->
+    </div>
+    <div class="section">
+      <div class="footer">
+        <div class="container white">
+          <div class="col four left">
+            <h1>What?</h1>
+            <p>...............</p>
+            <p>...............</p>
+            <p>...............</p>
           </div>
+          <div class="col four left">
+            <h1>How?</h1>
+            <p>...............</p>
+            <p>...............</p>
+            <p>...............</p>
+          </div>
+          <div class="col four left">
+            <h1>Why?</h1>
+            <p>...............</p>
+            <p>...............</p>
+          </div>
+          <div class="col four left">
+            <h1>Who?</h1>
+            <p>...............</p>
+            <p>...............</p>
+          </div>
+          <div class="group"></div>
         </div>
       </div>
+    </div>
 
 
- <!-- renderer -->
-   <script id="stocks-template" type="text/x-handlebars-template">
+    <!-- renderer -->
+    <script id="stocks-template" type="text/x-handlebars-template">
    {{#each stockData}}
    <div id="stock">
            <div class="col three bg nopad pointer">
                    <div class="imgholder"></div>
                    <h1 class="feature">Stock</h1>
-                   <p class="balance-sheet">{{balanceSheet}}</p>
-                   <p class="income"> {{income}}</p>
-                   <p class="cash-flow">{{cashFlow}}</p>
+                   <div class="basicInfo">
+                    <p>{{company}}</p>
+                    <p>{{sector}}</p>
+                    <p>{{price}}</p>
+                    <p>{{volume}}</p>
+                    <p>{{dividend}}</p>
+                    </div>
+                    <div class="ranking">
+                       <p>{{ranks.return}}</p>
+                        <p>{{ranks.cost}}</p> 
+                        <p> {{ranks.profitability}}</p>
+                        <p>{{ranks.leverage}}</p>
+                        <p>{{ranks.overall}}</p>
+                    </div>
+                    <div class="ratios">
+                        <p>{{ratios.grossMargin}}</p>
+                        <p>{{ratios.operatingMargin}}</p> 
+                     </div>
                  </div>
-   </div>
+                 </div>
    {{/each}}
 </script>
 
-<!-- scripts -->
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script src="./node_modules/jquery/dist/jquery.js"></script>
-<script src="./node_modules/handlebars/dist/handlebars.js"></script>
-<script src="stockManager.js"></script>
-<script src= "render.js"></script>
-<script src="main.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="stockManager.js"></script>
+    <script src="render.js"></script>
+    <script src="main.js"></script>
 
 
 </body>
+
 </html>
