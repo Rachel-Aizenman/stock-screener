@@ -34,8 +34,8 @@ router.get('/stock/:Ticker', async function (req, res) {
           region: 'US',
           lang: 'en',
           symbol: ticker,
-          interval: '5m',
-          range: '1d'
+          interval: '1d',
+          range: '3mo'
         },
         headers: {
           'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com',
@@ -72,7 +72,7 @@ router.get('/stock/:Ticker', async function (req, res) {
         income: incomeData.Data,
         cashFlow: {},
         sector: tickerData.Sector,
-        graph: graphData,
+        graph: graphData.chart.result[0].indicators.quote[0].open,
         dividend: tickerData["Dividend Yield"],
         marketCap: tickerData["Market Cap"]
     }
