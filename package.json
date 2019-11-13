@@ -1,7 +1,6 @@
 {
   "name": "stock-screener",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,5 +21,14 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
     "require": "^2.4.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rachel-Aizenman/stock-screener.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rachel-Aizenman/stock-screener/issues"
+  },
+  "homepage": "https://github.com/Rachel-Aizenman/stock-screener#readme",
+  "description": ""
 }
