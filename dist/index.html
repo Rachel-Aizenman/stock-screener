@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.min.js"
+  <script src="https://kit.fontawesome.com/fdd0ae1583.js" crossorigin="anonymous"></script>
+
+  <!-- <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.min.js" -->
     media="screen,projection" />
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,19 +20,17 @@
     <div class="header">
       <div class="container">
         <ul class="nav">
-          <li><a href="#">LOGO</a></li>
-          <li><div id="search" href="#">
-            <form action="#" method="post">
+          <li><a href="#">Please Enter Stock Ticker:</a></li>
+          <!-- <li><div id="search" href="#"> -->
+            
+            <li><form action="#" method="post"></form>
 
               <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
                 onFocus="if(this.value=='search')this.value='' ">
-              <input type="hidden" value="">
+              <input type="hidden" value="">      </li>
 
-
-                <button id ="button"></button>
-           
-             <input type="text" id="stockSearch" placeholder="search"> -->
-              
+              <li><button id ="button">Search</button></li>
+        
 
             </form>
           </div></li>
@@ -60,17 +60,22 @@
     <div class="container ">
      
   
-      <div class="col four dropdown">
-          <h1 class="icon dropbtn">[]</h1>
+      <div class="col six dropdown">
+          <h1 class="icon dropbtn">
+              <i class="fas fa-undo-alt"></i> 
+            </h1>
           <h1 class="service" id="Return">Return</h1>
           <div class="dropdown-content">
             <a href="#">High to Low</a>
             <a href="#">Low to High</a>
+            
           </div>
         </div>
 
-      <div class="col four dropdown">
-          <h1 class="icon dropbtn">[]</h1>
+      <div class="col six dropdown">
+          <h1 class="icon dropbtn">
+              <i class="fas fa-dollar-sign"></i>
+          </h1>
           <h1 class="service" id="Market-Cap">Cost</h1>
           <div class="dropdown-content">
               <a href="#">High to Low</a>
@@ -79,8 +84,10 @@
           </div>
         </div>
 
-        <div class="col four dropdown">
-            <h1 class="icon dropbtn">[]</h1>
+        <div class="col six dropdown">
+            <h1 class="icon dropbtn">
+                <i class="fas fa-search-dollar"></i>
+            </h1>
             <h1 class="service" id="Market-Cap">Profitability</h1>
             <div class="dropdown-content">
                 <a href="#">High to Low</a>
@@ -88,8 +95,9 @@
             </div>
           </div>
 
-          <div class="col four dropdown">
-              <h1 class="icon dropbtn">[]</h1>
+          <div class="col six dropdown">
+              <h1 class="icon dropbtn">
+                  <i class="fas fa-balance-scale"></i>              </h1>
               <h1 class="service" id="filter">Leverage</h1>
               <div class="dropdown-content">
                   <a href="#">High to Low</a>
@@ -97,8 +105,10 @@
               </div>
             </div>
 
-          <div class="col four dropdown">
-              <h1 class="icon dropbtn">[]</h1>
+          <div class="col six dropdown offset-s4">
+              <h1 class="icon dropbtn">
+                  <i class="fas fa-chart-pie"></i>
+              </h1>
               <h1 class="service" id="Market-Cap">Market-Cap</h1>
               <div class="dropdown-content">
                 <a href="#">Large</a>
@@ -109,10 +119,12 @@
     
               </div>
             </div>
+  
 
-
-      <div class="col four dropdown">
-          <h1 class="icon dropbtn">[]</h1>
+      <div class="col six dropdown">
+          <h1 class="icon dropbtn">
+              <i class="fas fa-industry"></i>
+          </h1>
           <h1 class="service" id="sector">Sector</h1>
           <div class="dropdown-content">
             <a href="#">Energy</a>
@@ -129,6 +141,7 @@
             <a href="#">Real Estate</a>
           </div>
         </div>
+      <!-- </div>    -->
 
       <!-- </div> -->
       <div class="group"></div>
@@ -153,35 +166,6 @@
       <div id="display-stocks"></div>
     </div>
 
-
-      <!-- footer -->
-      <div class="footer">
-        <div class="container white">
-          <div class="col four left">
-            <h1>What?</h1>
-            <p>...............</p>
-            <p>...............</p>
-            <p>...............</p>
-          </div>
-          <div class="col four left">
-            <h1>How?</h1>
-            <p>...............</p>
-            <p>...............</p>
-            <p>...............</p>
-          </div>
-          <div class="col four left">
-            <h1>Why?</h1>
-            <p>...............</p>
-            <p>...............</p>
-          </div>
-          <div class="col four left">
-            <h1>Who?</h1>
-            <p>...............</p>
-            <p>...............</p>
-          </div>
-          <div class="group"></div>
-        </div>
-      </div>
 
     <!-- renderer -->
     <script id="stocks-template" type="text/x-handlebars-template">
@@ -224,7 +208,6 @@
                      </div>
             </div>
    </div>
-   {{/each}}
 </script>
 
 
