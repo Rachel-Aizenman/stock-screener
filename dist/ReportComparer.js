@@ -6,15 +6,15 @@ class ReportComparer {
 
     compareReports(stock) {
         
-        compareFields(stock.balanceSheet, stock.balanceSheetPrev)
-        compareFields(stock.income, stock.incomePrev)
-        
-        let keys = Obejct.keys(this.comparison)
-        keys.forEach(k => {
+        this.compareFields(stock.balanceSheet, stock.balanceSheetPrev)
+        this.compareFields(stock.income, stock.incomePrev)
+        console.log(this.comparison)
+        let keys = Object.keys(this.comparison)
+        keys.forEach(key => {
             if (this.comparison[key] >= 1.1 || this.comparison[key] <= 0.9)
-                this.significants[key] = comparison[key]
+                this.significants[key] = this.comparison[key]
         })
-
+        console.log(this.significants)
         return this.significants
 
     }
@@ -22,9 +22,9 @@ class ReportComparer {
     compareFields(currentReport, prevReport) {
         let current
         let previous
-        let keys = Obejct.keys(currentReport)
+        let keys = Object.keys(currentReport)
 
-        for (key of keys) {
+        for (let key of keys) {
             current = currentReport[key]
             previous = prevReport[key]
             if (previous && previous != 0)
