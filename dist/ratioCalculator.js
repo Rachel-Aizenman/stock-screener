@@ -11,7 +11,9 @@ class RatioCalculator {
         const assets = stock.balanceSheet.Assets
         const liabilities = stock.balanceSheet.Liabilities
         const longTermDebt = (stock.balanceSheet.LongTermDebtCurrent + stock.balanceSheet.LongTermDebtNoncurrent) ||0 
-
+        const assetsCurrent=stock.balanceSheet.AssetsCurrent
+        const liabilitesCurrent=stock.balanceSheet.LiabilitesCurrent;
+        
         const grossIncome = revenue-costOfGoods // if exists
         const operatingIncome = stock.income.OperatingIncomeLoss // if exists
         const netIncome = stock.income.NetIncomeLoss
@@ -29,6 +31,7 @@ class RatioCalculator {
 
         this.ratios["debtToEquity"] = (liabilities - equity) / equity
         this.ratios["LongTermDebtToEquity"] = longTermDebt / equity
+        this.ratios["currentRatio"]=assetsCurrent/liabilitesCurrent
 
         const ratioKeys = Object.keys(this.ratios);
         for (let ratio of ratioKeys)

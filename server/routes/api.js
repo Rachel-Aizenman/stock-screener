@@ -7,6 +7,7 @@ const apikey = '9d6df703d4f14735afe82789694f959e'
 
 router.get('/stock/:Ticker', async function (req, res) {
     let ticker = req.params.Ticker
+    //report route
     let balanceSheetReq = {
         url: "https://services.last10k.com/v1/company/" + ticker + "/balancesheet?formType=10-K&filingOrder=0",
         headers: {
@@ -19,12 +20,16 @@ router.get('/stock/:Ticker', async function (req, res) {
             'Ocp-Apim-Subscription-Key': apikey
         }
     };
+
+    //price route
     let priceReq = {
         url: "https://services.last10k.com/v1/company/" + ticker + "/quote",
         headers: {
             'Ocp-Apim-Subscription-Key': apikey
         }
     };
+
+    // add. info route
     let additionalInfoReq = {
         url: "https://datahub.io/core/s-and-p-500-companies-financials/r/constituents-financials.json"
     }
@@ -34,16 +39,25 @@ router.get('/stock/:Ticker', async function (req, res) {
     let additionalInfoData
     let tickerData
     try {
+        // report route
         balanceSheetData = await requestPromise(balanceSheetReq)
         incomeData = await requestPromise(incomeReq)
+
+        //price route
         priceData = await requestPromise(priceReq)
+        //add. info route 
         additionalInfoData = await requestPromise(additionalInfoReq)
+
+        //report route
         balanceSheetData = JSON.parse(balanceSheetData)
         incomeData = JSON.parse(incomeData)
 
+        // price route
         priceData = JSON.parse(priceData)
+
+        //add info
         additionalInfoData = JSON.parse(additionalInfoData)
-        tickerData = additionalInfoData.find(a => a.Symbol === ticker)
+        tickerData = additionalInfoData.find(a => a.Symbol === ticker) // ??
     }
     catch (err) {
         console.log(err)
@@ -52,9 +66,11 @@ router.get('/stock/:Ticker', async function (req, res) {
         company: balanceSheetData.Company,
         price: priceData.LastTradePrice,
         volume: priceData.Volume,
+
         balanceSheet: balanceSheetData.Data,
         income: incomeData.Data,
         cashFlow: {},
+
         sector: tickerData.Sector,
         dividend: tickerData["Dividend Yield"],
         marketCap: tickerData["Market Cap"]
@@ -62,14 +78,16 @@ router.get('/stock/:Ticker', async function (req, res) {
     let balanceKeys = Object.keys(companyData.balanceSheet)
     const incomeKeys = Object.keys(companyData.income)
 
+
+    // All of my code should go to report route!
     //cost of goods
 
-    if (incomeKeys.findIndex(k => k === "CostOfGoods")==-1) {
+    if (incomeKeys.findIndex(k => k === "CostOfGoods") == -1) {
         const goodsKey = incomeKeys.find(k => k.startsWith("CostOfGoods"))
-        const revKey=incomeKeys.findIndex(k => k.startsWith("CostOfRevenue"))
+        const revKey = incomeKeys.findIndex(k => k.startsWith("CostOfRevenue"))
         if (goodsKey)
             companyData.income["CostOfGoods"] = companyData.income[incomeKeys[goodsKey]]
-        else if(revKey!=-1)
+        else if (revKey != -1)
             companyData.income["CostOfGoods"] = companyData.income[incomeKeys[revKey]]
     }
 
@@ -118,4 +136,17 @@ router.get('/stocks', async function (req, res) {
     res.send(stocks)
 })
 
+router.get('/prices', async function (req, res) {
+    let datahubReq = {
+        url: "https://datahub.io/core/s-and-p-500-companies-financials/r/constituents-financials.json"
+    }
+    try {
+        data = await requestPromise(datahubReq)
+        data = JSON.parse(data)
+    }
+    catch (err) {
+        console.log(err)
+    }
+    res.send(data)
+})
 module.exports = router
