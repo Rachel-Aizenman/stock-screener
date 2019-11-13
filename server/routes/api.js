@@ -35,17 +35,17 @@ router.get('/stock/:Ticker', async function (req, res) {
     let graphReq = {
         url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-charts',
         qs: {
-          region: 'US',
-          lang: 'en',
-          symbol: ticker,
-          interval: '1d',
-          range: '3mo'
+            region: 'US',
+            lang: 'en',
+            symbol: ticker,
+            interval: '1d',
+            range: '3mo'
         },
         headers: {
-          'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com',
-          'x-rapidapi-key': '58436f64b0msh35def4d22f5460ep1c0eedjsn0dc165d2a980'
+            'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com',
+            'x-rapidapi-key': '58436f64b0msh35def4d22f5460ep1c0eedjsn0dc165d2a980'
         }
-      };
+    };
     let priceData
     let balanceSheetData
     let incomeData
@@ -76,6 +76,8 @@ router.get('/stock/:Ticker', async function (req, res) {
         balanceSheet: balanceSheetData.Data,
         income: incomeData.Data,
         cashFlow: {},
+        balanceSheetPrev: {},
+        incomePrev: {},
         sector: tickerData.Sector,
         dividend: tickerData["Dividend Yield"],
         marketCap: tickerData["Market Cap"],
@@ -86,12 +88,12 @@ router.get('/stock/:Ticker', async function (req, res) {
 
     //cost of goods
 
-    if (incomeKeys.findIndex(k => k === "CostOfGoods")==-1) {
+    if (incomeKeys.findIndex(k => k === "CostOfGoods") == -1) {
         const goodsKey = incomeKeys.find(k => k.startsWith("CostOfGoods"))
-        const revKey=incomeKeys.findIndex(k => k.startsWith("CostOfRevenue"))
+        const revKey = incomeKeys.findIndex(k => k.startsWith("CostOfRevenue"))
         if (goodsKey)
             companyData.income["CostOfGoods"] = companyData.income[incomeKeys[goodsKey]]
-        else if(revKey!=-1)
+        else if (revKey != -1)
             companyData.income["CostOfGoods"] = companyData.income[incomeKeys[revKey]]
     }
 
@@ -129,11 +131,96 @@ router.get('/stock/:Ticker', async function (req, res) {
         else if (salesKey != -1)
             companyData.income["Revenue"] = companyData.income[incomeKeys[salesKey]]
     }
-
+    console.log(companyData)
     const stock2DB = new Stock(companyData)
     await stock2DB.save()
     res.send(companyData)
     }
+})
+
+router.get('/compare/:Ticker', async function (req, res) {
+    let ticker = req.params.Ticker
+    let balanceSheetReq = {
+        url: "https://services.last10k.com/v1/company/" + ticker + "/balancesheet?formType=10-K&filingOrder=1",
+        headers: {
+            'Ocp-Apim-Subscription-Key': apikey
+        }
+    };
+    let incomeReq = {
+        url: "https://services.last10k.com/v1/company/" + ticker + "/income?formType=10-K&filingOrder=1",
+        headers: {
+            'Ocp-Apim-Subscription-Key': apikey
+        }
+    };
+
+    let balanceSheetData
+    let incomeData
+    try {
+        balanceSheetData = await requestPromise(balanceSheetReq)
+        incomeData = await requestPromise(incomeReq)
+        balanceSheetData = JSON.parse(balanceSheetData)
+        incomeData = JSON.parse(incomeData)
+    }
+    catch (err) {
+        console.log(err)
+    }
+
+    companyData = {
+        balanceSheet: balanceSheetData.Data,
+        income: incomeData.Data,
+    }
+    let balanceKeys = Object.keys(companyData.balanceSheet)
+    const incomeKeys = Object.keys(companyData.income)
+
+    //cost of goods
+
+    if (incomeKeys.findIndex(k => k === "CostOfGoods") == -1) {
+        const goodsKey = incomeKeys.find(k => k.startsWith("CostOfGoods"))
+        const revKey = incomeKeys.findIndex(k => k.startsWith("CostOfRevenue"))
+        if (goodsKey)
+            companyData.income["CostOfGoods"] = companyData.income[incomeKeys[goodsKey]]
+        else if (revKey != -1)
+            companyData.income["CostOfGoods"] = companyData.income[incomeKeys[revKey]]
+    }
+
+    //liabilites
+    let liabilityKey
+    if (balanceKeys.findIndex(k => k === "Liabilities") == -1) {
+        liabilityKey = balanceKeys.find(k => k.startsWith("Liabilities"))
+        companyData.balanceSheet["Liabilities"] = companyData.balanceSheet[liabilityKey]
+    }
+
+
+    // stockholder field
+    const equityKey = balanceKeys.find(k => k.startsWith("StockholderEquity"))
+    if (equityKey)
+        companyData.balanceSheet["StockholdersEquity"] = companyData.balanceSheet[equityKey]
+
+    else {
+        balanceKeys = Object.keys(companyData.balanceSheet)
+        if (balanceKeys.findIndex(k => k === "StockholderEquity") == -1
+            && balanceKeys.findIndex(k => k === "Liabilities") != -1
+            && balanceKeys.findIndex(k => k === "LiabilitiesAndStockholdersEquity") != -1)
+            companyData.balanceSheet["StockholdersEquity"] = companyData.balanceSheet["LiabilitiesAndStockholdersEquity"] - companyData.balanceSheet["Liabilities"]
+    }
+
+    // net income
+    if (incomeKeys.findIndex(k => k === "NetIncomeLoss") == -1)
+        companyData.income["NetIncomeLoss"] = companyData.income["profitLoss"]
+
+    // revenue
+    if (incomeKeys.findIndex(k => k === "Revenue") == -1) {
+        const revenueKey = incomeKeys.findIndex(k => k.startsWith("Revenue"))
+        const salesKey = incomeKeys.findIndex(k => k.startsWith("Sales"))
+        if (revenueKey != -1)
+            companyData.income["Revenue"] = companyData.income[incomeKeys[revenueKey]]
+        else if (salesKey != -1)
+            companyData.income["Revenue"] = companyData.income[incomeKeys[salesKey]]
+    }
+    const filter={ company: balanceSheetData.Company }
+    const update={balanceSheetPrev:companyData.balanceSheet,incomePrev:companyData.income}
+    await Stock.findOneAndUpdate(filter,{"$set":update},{new:true})
+    res.send()
 })
 
 router.get('/stocks', async function (req, res) {
