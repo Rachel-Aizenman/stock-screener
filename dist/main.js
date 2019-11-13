@@ -2,7 +2,7 @@
 
 const ratioCalculator= new RatioCalculator();
 const analyzer=new StockAnalyzer();
-const stocksManager = new StockManager
+const stocksManager = new StockManager();
 const renderer = new Renderer
 
 const handleSearch = async function(){
@@ -15,6 +15,6 @@ const handleSearch = async function(){
 $("#search").on("click",async function () {
     await handleSearch()
 })
-
 const rc= new RatioCalculator();
+stocksManager.getDataFromDB()
 
