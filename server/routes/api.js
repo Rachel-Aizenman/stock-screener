@@ -166,7 +166,7 @@ router.get('/compare/:Ticker', async function (req, res) {
         console.log(err)
     }
 
-    companyData = {
+    let companyData = {
         balanceSheet: balanceSheetData.Data,
         income: incomeData.Data,
     }

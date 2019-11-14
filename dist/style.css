@@ -355,6 +355,9 @@ h1.hero:after {
 /*
   Column specifics
 */
+.font2{
+  font-size: 20px;
+}
 
 .col p,
 .col h1 {
