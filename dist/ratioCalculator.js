@@ -25,7 +25,7 @@ class RatioCalculator {
 
         this.ratios["grossMargin"] = grossIncome / revenue || null
         this.ratios["operatingMargin"] = operatingIncome / revenue || null
-        this.ratios["profitMargin"] = netIncome / revenue
+        this.ratios["profitMargin"] = netIncome / revenue ||null
 
         this.ratios["debtToEquity"] = (liabilities - equity) / equity
         this.ratios["LongTermDebtToEquity"] = longTermDebt / equity

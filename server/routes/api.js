@@ -121,7 +121,7 @@ router.get('/stock/:Ticker', async function (req, res) {
 
     // net income
     if (incomeKeys.findIndex(k => k === "NetIncomeLoss") == -1)
-        companyData.income["NetIncomeLoss"] = companyData.income["profitLoss"]
+        companyData.income["NetIncomeLoss"] = companyData.income["ProfitLoss"]
 
     // revenue
     if (incomeKeys.findIndex(k => k === "Revenue") == -1) {
@@ -207,7 +207,7 @@ router.get('/compare/:Ticker', async function (req, res) {
 
     // net income
     if (incomeKeys.findIndex(k => k === "NetIncomeLoss") == -1)
-        companyData.income["NetIncomeLoss"] = companyData.income["profitLoss"]
+        companyData.income["NetIncomeLoss"] = companyData.income["ProfitLoss"]
 
     // revenue
     if (incomeKeys.findIndex(k => k === "Revenue") == -1) {
