@@ -467,15 +467,16 @@ body {
   padding: 0;
 }
 
-
-#logo { 
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%);
-  background:   red;
-  float: left;
-  margin-left: 5px;
-} 
+.flex-container2{
+  display:flex;
+  flex-wrap: wrap;
+  border: 5px solid gray
+}
+.flex-container2>div{
+ overflow: hidden;
+  margin:5px;
+  width:500px
+}
 
 .header {
   line-height: 70px;
@@ -679,6 +680,7 @@ h1.hero:after {
   width: 40%;
   margin: 2.5% 2.5%;
   padding: 0 2.5%;
+  /* border: 2px solid black */
 }
 
 .col.extrapad {
@@ -707,7 +709,9 @@ h1.hero:after {
 .col .feature {
   font-size: 19px;
 }
-
+.compare{
+  margin: 50px;
+}
 .col h1.side,
 .col p.side,
 .col span.side:first-of-type {
@@ -750,6 +754,9 @@ h1.hero:after {
 /*
   Column specifics
 */
+.font2{
+  font-size: 14px;
+}
 
 .col p,
 .col h1 {
