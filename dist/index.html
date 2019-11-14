@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- <head> -->
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Stock Screener</title>
   <script src="https://kit.fontawesome.com/fdd0ae1583.js" crossorigin="anonymous"></script>
 
   <!-- <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.min.js" -->
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <!-- fixed nav -->
   <div class="fixed nav-bar">
-  <div class="hold">
-    <div class="header">
-      <div class="container">
-        <ul class="nav">
-          <li><a href="#">Please Enter Stock Ticker:</a></li>
-        <li><input id="searchbox" placeholder="search"></li>
-        <li><div id="search-button"><i class="fas fa-search"></i></div></li>
-  
-      </ul>
-       
+
+    <div class="hold">
+      <div class="header">
+        <div class="container">
+          <ul class="nav">
+
+
+
+
+
+
+            <!-- <input type="text" id="stockSearch" placeholder="search"> -->
+
+
+            <li><a href="#">Please Enter Stock Ticker:</a></li>
+            <!-- <li><div id="search" href="#"> -->
+
+            <li>
+              <form action="#" method="post"></form>
+
+              <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
+                onFocus="if(this.value=='search')this.value='' ">
+              <input type="hidden" value="">
+            </li>
+
+            <li><button id="button">Search</button></li>
+
+
+
+            </form>
+        </div>
+        </li>
+        </ul>
+
       </div>
     </div>
   </div>
 
 
 
-  
+
   <!-- banner -->
   <div class="section">
     <div class="slider">
@@ -47,101 +74,106 @@
   <!-- Filter Options -->
   <div class="section">
     <div class="container ">
-     
-  
-      <div class="col six dropdown">
-          <h1 class="icon dropbtn">
-              <i class="fas fa-undo-alt"></i> 
-            </h1>
-          <h1 class="service" id="Return">Return</h1>
-          <div class="dropdown-content">
-            <a href="#">High to Low</a>
-            <a href="#">Low to High</a>
-            
-          </div>
-        </div>
+
 
       <div class="col six dropdown">
-          <h1 class="icon dropbtn">
-              <i class="fas fa-dollar-sign"></i>
-          </h1>
-          <h1 class="service" id="Market-Cap">Cost</h1>
-          <div class="dropdown-content">
-              <a href="#">High to Low</a>
-              <a href="#">Low to High</a>
+        <h1 class="icon dropbtn">
+          <i class="fas fa-undo-alt"></i>
+        </h1>
 
-          </div>
+        <h1 class="service" id="return">Return</h1>
+        <div class="dropdown-content">
+          <a href="#" data-id="return">High to Low</a>
+          <a href="#" data-id="return">Low to High</a>
+
+
         </div>
+      </div>
 
-        <div class="col six dropdown">
-            <h1 class="icon dropbtn">
-                <i class="fas fa-search-dollar"></i>
-            </h1>
-            <h1 class="service" id="Market-Cap">Profitability</h1>
-            <div class="dropdown-content">
-                <a href="#">High to Low</a>
-                <a href="#">Low to High</a>
-            </div>
-          </div>
+      <div class="col six dropdown">
+        <h1 class="icon dropbtn">
+          <i class="fas fa-dollar-sign"></i>
+        </h1>
 
-          <div class="col six dropdown">
-              <h1 class="icon dropbtn">
-                  <i class="fas fa-balance-scale"></i>              </h1>
-              <h1 class="service" id="filter">Leverage</h1>
-              <div class="dropdown-content">
-                  <a href="#">High to Low</a>
-                  <a href="#">Low to High</a>
-              </div>
-            </div>
+        <h1 class="service" id="cost">Cost</h1>
+
+        <div class="dropdown-content">
+          <a href="#" data-id="cost">High to Low</a>
+          <a href="#" data-id="cost">Low to High</a>
+
+        </div>
+      </div>
+
+      <div class="col six dropdown">
+        <h1 class="icon dropbtn">
+          <i class="fas fa-search-dollar"></i>
+        </h1>
+        <h1 class="service" id="profitability">Profitability</h1>
+        <div class="dropdown-content">
+          <a href="#" data-id="profitability">High to Low</a>
+          <a href="#" data-id="profitability">Low to High</a>
+        </div>
+      </div>
+
+      <div class="col six dropdown">
+        <h1 class="icon dropbtn">
+          <i class="fas fa-balance-scale"></i> </h1>
+        <h1 class="service" id="leverage">Leverage</h1>
+        <div class="dropdown-content">
+          <a href="#" data-id="leverage">High to Low</a>
+          <a href="#" data-id="leverage">Low to High</a>
+        </div>
+      </div>
+
 
           <div class="col six dropdown offset-s4">
               <h1 class="icon dropbtn">
                   <i class="fas fa-chart-pie"></i>
               </h1>
-              <h1 class="service" id="Market-Cap">Market-Cap</h1>
+              <h1 class="service" id="marketCap">Market-Cap</h1>
               <div class="dropdown-content">
-                <a href="#">Large</a>
-                <a href="#">Medium</a>
-                <a href="#">Small</a>
-                <a href="#">Micro</a>
-                <a href="#">Med +</a>
-    
+
+                <a href="#" data-id="market-cap">Large</a>
+                <a href="#"data-id="market-cap">Medium</a>
+                <a href="#"data-id="market-cap">Small</a>
+                <a href="#"data-id="market-cap">Micro</a>
+                <a href="#"data-id="market-cap">Medium +</a>
+  
               </div>
             </div>
-  
 
       <div class="col six dropdown">
-          <h1 class="icon dropbtn">
-              <i class="fas fa-industry"></i>
-          </h1>
-          <h1 class="service" id="sector">Sector</h1>
-          <div class="dropdown-content">
-            <a href="#">Energy</a>
-            <a href="#">Materials</a>
-            <a href="#">Industrials</a>
-            <a href="#">Consumer Discretionary</a>
-            <a href="#">Consumer Staples</a>
-            <a href="#">Health Care</a>
-            <a href="#">Financials</a>
-            <a href="#">Information Technology</a>
-            <a href="#">Telecommunication Services</a>
+        <h1 class="icon dropbtn">
+          <i class="fas fa-industry"></i>
+        </h1>
+        <h1 class="service" id="sector">Sector</h1>
+        <div class="dropdown-content">
+          <a href="#" data-id="sector">Energy</a>
+          <a href="#" data-id="sector">Materials</a>
+          <a href="#" data-id="sector">Industrials</a>
+          <a href="#" data-id="sector">Consumer Discretionary</a>
+          <a href="#" data-id="sector">Consumer Staples</a>
+          <a href="#" data-id="sector">Health Care</a>
+          <a href="#" data-id="sector">Financials</a>
+          <a href="#" data-id="sector">Information Technology</a>
+          <a href="#" data-id="sector">Telecommunication Services</a>
 
-            <a href="#">Utilities</a>
-            <a href="#">Real Estate</a>
-          </div>
+          <a href="#">Utilities</a>
+          <a href="#">Real Estate</a>
         </div>
+      </div>
       <!-- </div>    -->
 
       <!-- </div> -->
       <div class="group"></div>
-    <!-- </div> -->
-  <!-- </div> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
 
 
- 
 
-<!-- the filters themselves -->
+
+      <!-- the filters themselves -->
 
 
 
@@ -150,46 +182,92 @@
 
       <div class="section bg">
         <div class="container">
-      <h1>Stocks:</h1>
+          <h1>Your Stocks</h1>
 
-      <div id="display-stocks"></div>
-    </div>
+          <div id="display-stocks"></div>
+        </div>
 
+        <!-- comparison div -->
+        <div class="section">
+          <div id="report-comparison"></div>
+        </div>
+        
+        <!-- footer -->
+        <div class="footer">
+          <div class="container white">
+            <div class="col three left">
+              <h1>What?</h1>
+              <p class="font2">A fundamental analysis stock screener!</p>
+              <p class="font2">Just put your favorite stock ticker and let the analysis begin!</p>
+            </div>
+            <div class="col three left">
+              <h1>How?</h1>
+              <p class="font2">Using databases and fundamental analysis tools, we make your stock picking much easier.
+              </p>
+            </div>
+            <div class="col three left">
+              <h1>Why?</h1>
+              <p class="font2">Through the power of code, we dicided to develop a tool for us investors to make our
+                lives easier. </p>
 
-    <!-- renderer -->
-    <script id="stocks-template" type="text/x-handlebars-template">
+            </div>
+            <div class="col three left">
+              <h1>Who?</h1>
+              <p class="font2">Dudi</p>
+              <p class="font2">Racheli</p>
+              <p class="font2">Noam</p>
+            </div>
+            <div class="group"></div>
+          </div>
+        </div>
+
+        <!-- renderer -->
+        <script id="stocks-template" type="text/x-handlebars-template">
    {{#each stockData}}
    <div id="stock">
-           <div class="col three bg nopad pointer">
-                   <div class="imgholder"></div>
-                   <h1 class="feature">Stock</h1>
-                   <div class="basicInfo">
+           <div class="col two bg nopad pointer">
+              <h1 class="feature">{{company}}</h1>
+              <div id="graph">
+                  <canvas id="myChart-{{ticker}}" width="400" height="400"></canvas>
+          
+               </div>
+                   <div class ="flex-container">
+                   <div class="basicInfo six card">
 
-                    <p>Name: {{company}}</p>
-                    <p>Sector: {{sector}}</p>
-                    <p>Price - {{price}}</p>
-                    <p>Volume - {{volume}}</p>
-                    <p>Dividend - {{dividend}}</p>
-
+                    <h1>Basic Info</h1>
+                    <p class="font">Sector: {{sector}}</p>
+                    <p class="font">Price - {{price}}</p>
+                    <p class="font">Volume - {{volume}}</p>
+                    <p class="font">Dividend - {{dividend}}</p>
+                    <p class="font">Market Cap - {{marketCap}} </p>
                     </div>
-                    <div class="ranking">
-                      <h1>Rankings</h1>
-                       <p>Return - {{ranks.return}}</p>
-                        <p>Cost - {{ranks.cost}}</p> 
-                        <p>Profitability - {{ranks.profitability}}</p>
-                        <p>Leverage - {{ranks.leverage}}</p>
-                        <p>Overall - {{ranks.overall}}</p>
-                    </div>
-                    <div class="ratios">
-                        <h1>Ratios</h1>
-                        <p>Gross Margin - {{ratios.grossMargin}}</p>
-                        <p>Operating Margin - {{ratios.operatingMargin}}</p> 
+                 
+                    <div class="ratios card">
+                        <h1>Financial Ratios</h1>
+                        <p class="font">ROE - {{ratios.ROE}}</p>
+                        <p class="font">ROI - {{ratios.ROI}}</p>
+                        <p class="font">PE - {{ratios.PE}}</p>
+                        <p class="font">PB - {{ratios.PB}}</p>
+                        <p class="font">PS - {{ratios.PS}}</p>
+                        <!-- <p class="font">Gross Margin - {{ratios.grossMargin}}</p> -->
+                        <!-- <p class="font">Operating Margin - {{ratios.operatingMargin}}</p> -->
+                        <!-- <p class="font">Profit Margin - {{ratios.profitMargin}}</p> -->
+                        <p class="font">Debt To Equity - {{ratios.debtToEquity}}</p>
+                        <p class="font">Long Term Debt To Equity - {{ratios.LongTermDebtToEquity}}</p>
                      </div>
-
+                     <div class="ranking card">
+                        <h1>Rankings</h1>
+                         <p class="font">Return - {{ranks.return}}</p>
+                          <p class="font">Cost - {{ranks.cost}}</p> 
+                          <p class="font">Profitability - {{ranks.profitability}}</p>
+                          <p class="font">Leverage - {{ranks.leverage}}</p>
+                          <p class="font">Overall - {{ranks.overall}}</p>
+                      </div>
+                      </div>
+                      <button id ="compare">Compare with last years report</button>
                  </div>
                  </div>
    {{/each}}
-</script>
 
                      <div id="graph">
                         <canvas id="myChart" width="400" height="400"></canvas>
@@ -201,17 +279,17 @@
 
 
 
-    <!-- scripts -->
-    <script src="jquery/dist/jquery.js"></script>
-    <script src="handlebars/dist/handlebars.js"></script>
-    <script src="chart.js/dist/Chart.js"></script>
+        <!-- scripts -->
+        <script src="jquery/dist/jquery.js"></script>
+        <script src="handlebars/dist/handlebars.js"></script>
+        <script src="chart.js/dist/Chart.js"></script>
 
-    <script src="./ratioCalculator.js"></script>
-    <script src="./analyzeStocks.js"></script>
-    <script src="ReportComparer.js"></script>
-    <script src="stockManager.js"></script>
-    <script src="render.js"></script>
-    <script src="main.js"></script>
+        <script src="./ratioCalculator.js"></script>
+        <script src="./analyzeStocks.js"></script>
+        <script src="ReportComparer.js"></script>
+        <script src="stockManager.js"></script>
+        <script src="render.js"></script>
+        <script src="main.js"></script>
 
 
 </body>

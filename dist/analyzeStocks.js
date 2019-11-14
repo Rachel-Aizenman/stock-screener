@@ -21,9 +21,9 @@ class StockAnalyzer {
         for (let field of fields) {
             let bins = binsObject[field]
             for (let index in bins)
-                if (ratios[field] < bins[index]) { this.ranks[field] = index; break; }
-            if (!this.ranks[field])
-                this.ranks[field] = bins.length
+                if (ratios[field] < bins[index]) { this.ranks[field] = index / bins.length * 10; break; }
+            if (ratios[field] >= bins[bins.length - 1])
+                this.ranks[field] = 10
         }
 
         //debt to eq p/e p/s p/b
@@ -31,11 +31,12 @@ class StockAnalyzer {
         for (let field of fields) {
             let bins = binsObject[field]
             for (let index in bins)
-                if (ratios[field] <= 0) { this.ranks[field] = index; break; }
-                else if (ratios[field] > bins[index]) { this.ranks[field] = index; break; }
-            if (!this.ranks[field])
-                this.ranks[field] = bins.length
+                if (ratios[field] <= 0) { this.ranks[field] = index / bins.length * 10; break; }
+                else if (ratios[field] > bins[index]) { this.ranks[field] = index / bins.length * 10; break; }
+            if (ratios[field] <= bins[bins.length - 1] && !ratios[field] <= 0)
+                this.ranks[field] = 10
         }
+
         //final ranking
         if (ratios["ROI"] == 0) // return
             this.ranks["return"] = parseInt(this.ranks["ROE"])
@@ -47,9 +48,9 @@ class StockAnalyzer {
         else
             this.ranks["cost"] = 0.5 * parseInt(this.ranks["PE"]) + 0.5 * parseInt(this.ranks["PB"])
 
-        this.ranks["profitability"] = this.ranks["profitMargin"]
-        this.ranks["leverage"] = this.ranks["debtToEquity"]
-        this.ranks["strength"] = this.ranks["currentRatio"]
+        this.ranks["profitability"] = parseInt(this.ranks["profitMargin"])
+        this.ranks["leverage"] = parseInt(this.ranks["debtToEquity"])
+        this.ranks["overall"] = Math.round((4 * this.ranks["return"] + 3 * this.ranks["cost"] + 2 * this.ranks["cost"] + 2*this.ranks["leverage"]) / 11*100)/100
         return this.ranks
     }
 }

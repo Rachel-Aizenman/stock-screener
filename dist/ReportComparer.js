@@ -26,7 +26,9 @@ class ReportComparer {
 
         for (let key of keys) {
             current = currentReport[key]
-            previous = prevReport[key]
+            if(prevReport !== undefined){
+               previous = prevReport[key]
+            }
             if (previous && previous != 0)
                 this.comparison[key] = current / previous
         }

@@ -7,6 +7,11 @@ const apikey = 'b984a472dfd64e209860a6d9ca936a85'
 
 router.get('/stock/:Ticker', async function (req, res) {
     let ticker = req.params.Ticker
+    const data=await Stock.find({"ticker":ticker});
+    if(data.length!=0){
+        res.end()
+    }
+    else{
     let balanceSheetReq = {
         url: "https://services.last10k.com/v1/company/" + ticker + "/balancesheet?formType=10-K&filingOrder=0",
         headers: {
@@ -64,7 +69,8 @@ router.get('/stock/:Ticker', async function (req, res) {
     catch (err) {
         console.log(err)
     }
-    companyData = {
+    let companyData = {
+        ticker: ticker,
         company: balanceSheetData.Company,
         price: priceData.LastTradePrice,
         volume: priceData.Volume,
@@ -74,9 +80,9 @@ router.get('/stock/:Ticker', async function (req, res) {
         balanceSheetPrev: {},
         incomePrev: {},
         sector: tickerData.Sector,
-        graph: graphData.chart.result[0].indicators.quote[0].open,
         dividend: tickerData["Dividend Yield"],
-        marketCap: tickerData["Market Cap"]
+        marketCap: tickerData["Market Cap"],
+        graph: graphData.chart.result[0].indicators.quote[0].open
     }
     let balanceKeys = Object.keys(companyData.balanceSheet)
     const incomeKeys = Object.keys(companyData.income)
@@ -115,7 +121,7 @@ router.get('/stock/:Ticker', async function (req, res) {
 
     // net income
     if (incomeKeys.findIndex(k => k === "NetIncomeLoss") == -1)
-        companyData.income["NetIncomeLoss"] = companyData.income["profitLoss"]
+        companyData.income["NetIncomeLoss"] = companyData.income["ProfitLoss"]
 
     // revenue
     if (incomeKeys.findIndex(k => k === "Revenue") == -1) {
@@ -130,6 +136,7 @@ router.get('/stock/:Ticker', async function (req, res) {
     const stock2DB = new Stock(companyData)
     await stock2DB.save()
     res.send(companyData)
+    }
 })
 
 router.get('/compare/:Ticker', async function (req, res) {
@@ -159,7 +166,7 @@ router.get('/compare/:Ticker', async function (req, res) {
         console.log(err)
     }
 
-    companyData = {
+    let companyData = {
         balanceSheet: balanceSheetData.Data,
         income: incomeData.Data,
     }
@@ -200,7 +207,7 @@ router.get('/compare/:Ticker', async function (req, res) {
 
     // net income
     if (incomeKeys.findIndex(k => k === "NetIncomeLoss") == -1)
-        companyData.income["NetIncomeLoss"] = companyData.income["profitLoss"]
+        companyData.income["NetIncomeLoss"] = companyData.income["ProfitLoss"]
 
     // revenue
     if (incomeKeys.findIndex(k => k === "Revenue") == -1) {
@@ -215,6 +222,20 @@ router.get('/compare/:Ticker', async function (req, res) {
     const update={balanceSheetPrev:companyData.balanceSheet,incomePrev:companyData.income}
     await Stock.findOneAndUpdate(filter,{"$set":update},{new:true})
     res.send()
+})
+
+router.get('/prices', async function (req, res) {
+    let datahubReq = {
+        url: "https://datahub.io/core/s-and-p-500-companies-financials/r/constituents-financials.json"
+    }
+    try {
+        data = await requestPromise(datahubReq)
+        data = JSON.parse(data)
+    }
+    catch (err) {
+        console.log(err)
+    }
+    res.send(data)
 })
 
 router.get('/stocks', async function (req, res) {

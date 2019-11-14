@@ -75,6 +75,7 @@ body {
   display: none;
   position: absolute;
   left:0px;
+  top:85px;
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -96,6 +97,32 @@ body {
 
 
 .hold {
+}
+.card{
+  display: flex;
+    width: 200px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.flex-container{
+  display:flex;
+}
+.header {
+  line-height: 80px;
+  width: 100%;
+  transition: line-height 0.2s linear, box-shadow 0.2s linear;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(245, 245, 245, 0.97);
+}
+
+.header.small {
+  line-height: 50px;
+  box-shadow: 0px 1px 3px 0px rgba(50, 50, 50, 0.8);
 }
 
 
@@ -267,6 +294,9 @@ h1.hero:after {
 /*
   Column specifics
 */
+.font2{
+  font-size: 20px;
+}
 
 .col p,
 .col h1 {
@@ -326,7 +356,11 @@ h2 {
   font-weight: 400;
   font-size: 18px;
 }
-
+.font{
+  font-size: 12px;
+  font-weight:bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .left,
 .left > h1,
 .left > p {
