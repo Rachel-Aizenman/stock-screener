@@ -224,6 +224,20 @@ router.get('/compare/:Ticker', async function (req, res) {
     res.send()
 })
 
+router.get('/prices', async function (req, res) {
+    let datahubReq = {
+        url: "https://datahub.io/core/s-and-p-500-companies-financials/r/constituents-financials.json"
+    }
+    try {
+        data = await requestPromise(datahubReq)
+        data = JSON.parse(data)
+    }
+    catch (err) {
+        console.log(err)
+    }
+    res.send(data)
+})
+
 router.get('/stocks', async function (req, res) {
     const stocks = await Stock.find({})
     res.send(stocks)

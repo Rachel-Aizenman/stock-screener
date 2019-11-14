@@ -51,4 +51,12 @@ class StockManager {
         });
         console.log(this.stockData)
     }
+
+    async updatePrices() {
+        data = await $.get('/prices')
+        this.stockData.forEach(s => {
+            const updatedStockData = data.find(t => t.name === s.name)
+            s.price = updatedStockData.price
+        })
+    }
 }    
