@@ -70,12 +70,14 @@ body {
 }
 
 /* filter drop down */
-
+#update{
+  left: 200px
+}
 .dropdown-content {
   display: none;
   position: absolute;
   left:0px;
-  top:85px;
+  /* top:85px; */
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -158,13 +160,38 @@ ul.nav li:hover a {
   color: red;
 }
 
+
 ul.nav li a {
   padding: 21px;
   color: initial;
   text-decoration: initial;
 }
+input{
+  height: 35px;
+  border-radius: 7px;
+  font-family: Roboto, 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
 
 
+}
+/* buttons */
+button {
+  /* color: white; */
+  
+  padding: 12px 16px;
+  margin-right: 35px;
+  margin-left: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: black; 
+  background-color: white;
+  border-radius: 10px;
+}
+button:hover {
+  background-color: red;
+  color: white;
+}
 
 .hero {
   font-family: 'Roboto Slab', sans-serif;
@@ -222,7 +249,8 @@ h1.hero:after {
 }
 
 .col.six {
-  margin: 1%; 
+  margin: 4%;
+  left: 100px;
 }
 
 .col.three {
@@ -232,9 +260,8 @@ h1.hero:after {
 
 .col.two {
   width: 40%;
-  margin: 0 2.5%;
+  margin: 2.5% 2.5%;
   padding: 0 2.5%;
-  /* border: 2px solid black */
 }
 
 .col.extrapad {
@@ -460,16 +487,14 @@ h2 {
     width: 750px;
   }
 }
-
 @media all and (min-width: 992px) {
   .container {
     width: 970px;
   }
 }
-
 @media all and (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 100vw;
   }
 }
 

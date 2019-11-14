@@ -22,7 +22,7 @@ $("#button").on("click",async function () {
 })
 
 
-$("body").on("click","#compare",async function () {
+$("body").on("click",".compare",async function () {
     let companyName = $(this).siblings(".feature").text()
     const data=await stocksManager.compareReports(companyName)
     renderer.renderComparison(data)
