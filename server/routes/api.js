@@ -228,6 +228,7 @@ router.get('/prices', async function (req, res) {
     let datahubReq = {
         url: "https://datahub.io/core/s-and-p-500-companies-financials/r/constituents-financials.json"
     }
+    let data
     try {
         data = await requestPromise(datahubReq)
         data = JSON.parse(data)
