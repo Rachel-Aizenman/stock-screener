@@ -20,6 +20,7 @@ $("#button").on("click",async function () {
     await handleSearch()
 })
 
+
 $("body").on("click","#compare",async function () {
     let companyName = $(this).siblings(".feature").text()
     const data=await stocksManager.compareReports(companyName)
