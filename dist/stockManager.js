@@ -48,7 +48,34 @@ class StockManager {
                 return 0;
             }
 
-        });
-        console.log(this.stockData)
+         
+        })}
+        filterData(option,criteria) {
+           if(criteria==="sector"){
+               this.stockData = this.stockData.filter(s=> s.sector===option)
+           }
+            if(criteria==="market-cap"){
+                let large = 5000000000
+                let medium = 2000000000
+                let small = 500000000
+                let micro = 0
+                if(option==="Large"){
+                    this.stockData = this.stockData.filter(s=>s.marketCap>large)
+                }
+                if(option==="Medium"){
+                    this.stockData = this.stockData.filter(s=>(s.marketCap<large && s.marketCap>medium))
+                }
+                if(option==="Small"){
+                    this.stockData = this.stockData.filter(s=>(s.marketCap<medium && s.marketCap>small))
+                }
+                if(option==="Micro"){
+                    this.stockData = this.stockData.filter(s=>(s.marketCap<small && s.marketCap>micro))
+                }
+                if(option==="Medium +"){
+                    this.stockData = this.stockData.filter(s=>s.marketCap>=medium)
+                }
+            }
+        }
+        
     }
-}    
+   
