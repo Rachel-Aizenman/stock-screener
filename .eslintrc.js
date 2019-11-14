@@ -17,6 +17,6 @@ module.exports = {
         'ecmaVersion': 2018
     },
       "rules": {
-        "no-unused-vars": ["error", { "vars": "none", "args": "after-used", "ignoreRestSiblings": false }]
+        "no-unused-vars": 0
     }
 }
