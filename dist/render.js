@@ -44,10 +44,10 @@ class Renderer {
   renderComparison(significant) {
     const keys = Object.keys(significant)
     $('#report-comparison').empty()
-
-    $('#report-comparison').append(`<div> Significant changes in comparison to last year</div>`)
+    $('#report').empty()
+    $('#report').append(`<div> Significant changes in comparison to last year</div>`)
     for (let key of keys) {
-      $('#report-comparison').append(`<div> ${key} change of ${significant[key]}}</div>`)
+      $('#report-comparison').append(`<div class="font2"> ${key} change of - ${significant[key]}</div>`)
     }
 
   }

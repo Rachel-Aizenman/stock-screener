@@ -25,7 +25,7 @@ class StockManager {
         let currentStock = this.stockData.find(s => s.company === companyName)
         const ticker = currentStock.ticker
         await $.get('/compare/' + ticker)
-        this.stocksData = this.getDataFromDB();
+        this.stocksData = await this.getDataFromDB();
         currentStock = this.stockData.find(s => s.company === companyName)
         let compared = reportComparer.compareReports(currentStock)
         return compared
