@@ -26,13 +26,16 @@ $("body").on("click","#compare",async function () {
     renderer.renderComparison(data)
 })
 
-
 $("a").on('click',function(){
     const option=($(this).text())
     const criteria=$(this).data().id
-    if(criteria==="leverage"||criteria==="cost"||criteria==="profitability"||criteria==="return")
-        {stocksManager.sortData(option,criteria)
-        renderer.renderData(stocksManager.stockData)}
-
+    if(criteria==="leverage"||criteria==="cost"||criteria==="profitability"||criteria==="return"){
+        stocksManager.sortData(option,criteria)
+        renderer.renderData(stocksManager.stockData)
+    }
+    if(criteria==="sector"||criteria==="market-cap"){
+        stocksManager.filterData(option,criteria)
+        renderer.renderData(stocksManager.stockData)
+    }
 })
- loadPage()
+loadPage()
