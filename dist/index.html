@@ -2,7 +2,8 @@
 <html lang="en">
 
 <!-- <head> -->
-  <head>
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,50 +11,53 @@
   <script src="https://kit.fontawesome.com/fdd0ae1583.js" crossorigin="anonymous"></script>
 
   <!-- <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.min.js" -->
-    media="s>creen,projection" />
+  media="s>creen,projection" />
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <!-- fixed nav -->
   <div class="fixed nav-bar">
-  <div class="hold">
-    <div class="header">
-      <div class="container">
-        <ul class="nav">
-     
-          
+    <div class="hold">
+      <div class="header">
+        <div class="container">
+          <ul class="nav">
 
 
-               
-           
-             <!-- <input type="text" id="stockSearch" placeholder="search"> -->
-              
 
-          <li><a href="#">Please Enter Stock Ticker:</a></li>
-          <!-- <li><div id="search" href="#"> -->
-            
-            <li><form action="#" method="post"></form>
+
+
+
+            <!-- <input type="text" id="stockSearch" placeholder="search"> -->
+
+
+            <li><a href="#">Please Enter Stock Ticker:</a></li>
+            <!-- <li><div id="search" href="#"> -->
+
+            <li>
+              <form action="#" method="post"></form>
 
               <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
                 onFocus="if(this.value=='search')this.value='' ">
-              <input type="hidden" value="">      </li>
+              <input type="hidden" value="">
+            </li>
 
-              <li><button id ="button">Search</button></li>
-        
+            <li><button id="button">Search</button></li>
+
 
 
             </form>
-          </div></li>
+        </div>
+        </li>
         </ul>
-       
+
       </div>
     </div>
   </div>
 
 
 
-  
+
   <!-- banner -->
   <div class="section">
     <div class="slider">
@@ -69,106 +73,106 @@
   <!-- Filter Options -->
   <div class="section">
     <div class="container ">
-     
-  
-      <div class="col six dropdown">
-          <h1 class="icon dropbtn">
-              <i class="fas fa-undo-alt"></i> 
-            </h1>
 
-          <h1 class="service" id="return">Return</h1>
-          <div class="dropdown-content">
-            <a href="#" data-id="return">High to Low</a>
-            <a href="#"data-id="return">Low to High</a>
-            
-
-          </div>
-        </div>
 
       <div class="col six dropdown">
-          <h1 class="icon dropbtn">
-              <i class="fas fa-dollar-sign"></i>
-          </h1>
+        <h1 class="icon dropbtn">
+          <i class="fas fa-undo-alt"></i>
+        </h1>
 
-          <h1 class="service" id="cost">Cost</h1>
+        <h1 class="service" id="return">Return</h1>
+        <div class="dropdown-content">
+          <a href="#" data-id="return">High to Low</a>
+          <a href="#" data-id="return">Low to High</a>
 
-          <div class="dropdown-content">
-              <a href="#" data-id="cost" >High to Low</a>
-              <a href="#"data-id="cost">Low to High</a>
 
-          </div>
         </div>
-
-        <div class="col six dropdown">
-            <h1 class="icon dropbtn">
-                <i class="fas fa-search-dollar"></i>
-            </h1>
-            <h1 class="service" id="profitability">Profitability</h1>
-            <div class="dropdown-content">
-                <a href="#" data-id="profitability">High to Low</a>
-                <a href="#" data-id="profitability">Low to High</a>
-            </div>
-          </div>
-
-          <div class="col six dropdown">
-              <h1 class="icon dropbtn">
-                  <i class="fas fa-balance-scale"></i>              </h1>
-              <h1 class="service" id="leverage">Leverage</h1>
-              <div class="dropdown-content">
-                  <a href="#"data-id="leverage">High to Low</a>
-                  <a href="#"data-id="leverage">Low to High</a>
-              </div>
-            </div>
-
-          <div class="col six dropdown offset-s4">
-              <h1 class="icon dropbtn">
-                  <i class="fas fa-chart-pie"></i>
-              </h1>
-              <h1 class="service" id="marketCap">Market-Cap</h1>
-              <div class="dropdown-content">
-
-                <a href="#" data-id="market-cap">Large</a>
-                <a href="#"data-id="market-cap">Medium</a>
-                <a href="#"data-id="market-cap">Small</a>
-                <a href="#"data-id="market-cap">Micro</a>
-                <a href="#"data-id="market-cap">Med +</a>
-  
-              </div>
-            </div>
-  
+      </div>
 
       <div class="col six dropdown">
-          <h1 class="icon dropbtn">
-              <i class="fas fa-industry"></i>
-          </h1>
-          <h1 class="service" id="sector">Sector</h1>
-          <div class="dropdown-content">
-            <a href="#"data-id="sector">Energy</a>
-            <a href="#"data-id="sector">Materials</a>
-            <a href="#"data-id="sector">Industrials</a>
-            <a href="#"data-id="sector">Consumer Discretionary</a>
-            <a href="#"data-id="sector">Consumer Staples</a>
-            <a href="#"data-id="sector">Health Care</a>
-            <a href="#"data-id="sector">Financials</a>
-            <a href="#"data-id="sector">Information Technology</a>
-            <a href="#"data-id="sector">Telecommunication Services</a>
+        <h1 class="icon dropbtn">
+          <i class="fas fa-dollar-sign"></i>
+        </h1>
 
-            <a href="#">Utilities</a>
-            <a href="#">Real Estate</a>
-          </div>
+        <h1 class="service" id="cost">Cost</h1>
+
+        <div class="dropdown-content">
+          <a href="#" data-id="cost">High to Low</a>
+          <a href="#" data-id="cost">Low to High</a>
+
         </div>
+      </div>
+
+      <div class="col six dropdown">
+        <h1 class="icon dropbtn">
+          <i class="fas fa-search-dollar"></i>
+        </h1>
+        <h1 class="service" id="profitability">Profitability</h1>
+        <div class="dropdown-content">
+          <a href="#" data-id="profitability">High to Low</a>
+          <a href="#" data-id="profitability">Low to High</a>
+        </div>
+      </div>
+
+      <div class="col six dropdown">
+        <h1 class="icon dropbtn">
+          <i class="fas fa-balance-scale"></i> </h1>
+        <h1 class="service" id="leverage">Leverage</h1>
+        <div class="dropdown-content">
+          <a href="#" data-id="leverage">High to Low</a>
+          <a href="#" data-id="leverage">Low to High</a>
+        </div>
+      </div>
+
+      <div class="col six dropdown offset-s4">
+        <h1 class="icon dropbtn">
+          <i class="fas fa-chart-pie"></i>
+        </h1>
+        <h1 class="service" id="marketCap">Market-Cap</h1>
+        <div class="dropdown-content">
+
+          <a href="#" data-id="market-cap">Large</a>
+          <a href="#" data-id="market-cap">Medium</a>
+          <a href="#" data-id="market-cap">Small</a>
+          <a href="#" data-id="market-cap">Micro</a>
+          <a href="#" data-id="market-cap">Med +</a>
+
+        </div>
+      </div>
+
+
+      <div class="col six dropdown">
+        <h1 class="icon dropbtn">
+          <i class="fas fa-industry"></i>
+        </h1>
+        <h1 class="service" id="sector">Sector</h1>
+        <div class="dropdown-content">
+          <a href="#" data-id="sector">Energy</a>
+          <a href="#" data-id="sector">Materials</a>
+          <a href="#" data-id="sector">Industrials</a>
+          <a href="#" data-id="sector">Consumer Discretionary</a>
+          <a href="#" data-id="sector">Consumer Staples</a>
+          <a href="#" data-id="sector">Health Care</a>
+          <a href="#" data-id="sector">Financials</a>
+          <a href="#" data-id="sector">Information Technology</a>
+          <a href="#" data-id="sector">Telecommunication Services</a>
+
+          <a href="#">Utilities</a>
+          <a href="#">Real Estate</a>
+        </div>
+      </div>
       <!-- </div>    -->
 
       <!-- </div> -->
       <div class="group"></div>
-    <!-- </div> -->
-  <!-- </div> -->
+      <!-- </div> -->
+      <!-- </div> -->
 
 
 
- 
 
-<!-- the filters themselves -->
+
+      <!-- the filters themselves -->
 
 
 
@@ -177,42 +181,47 @@
 
       <div class="section bg">
         <div class="container">
-      <h1>Your Stocks</h1>
+          <h1>Your Stocks</h1>
 
-      <div id="display-stocks"></div>
-    </div>
-
-
-
-      <!-- footer -->
-      <div class="footer">
-        <div class="container white">
-          <div class="col three left">
-            <h1>What?</h1>
-            <p class="font2">A fundamental analysis stock screener!</p>
-            <p class="font2">Just put your  favorite stock ticker and let the analysis begin!</p>
-          </div>
-          <div class="col three left">
-            <h1>How?</h1>
-            <p class="font2">Using databases and fundamental analysis tools, we make your stock picking much easier.</p>
-          </div>
-          <div class="col three left">
-            <h1>Why?</h1>
-            <p class="font2">Through the power of code, we dicided to develop a tool for us investors to make our lives easier. </p>
-            
-          </div>
-          <div class="col three left">
-            <h1>Who?</h1>
-            <p class="font2">Dudi</p>
-            <p class="font2">Racheli</p>
-            <p class="font2">Noam</p>
-          </div>
-          <div class="group"></div>
+          <div id="display-stocks"></div>
         </div>
-      </div>
 
-    <!-- renderer -->
-    <script id="stocks-template" type="text/x-handlebars-template">
+        <!-- comparison div -->
+        <div class="section">
+          <div id="report-comparison"></div>
+        </div>
+        
+        <!-- footer -->
+        <div class="footer">
+          <div class="container white">
+            <div class="col three left">
+              <h1>What?</h1>
+              <p class="font2">A fundamental analysis stock screener!</p>
+              <p class="font2">Just put your favorite stock ticker and let the analysis begin!</p>
+            </div>
+            <div class="col three left">
+              <h1>How?</h1>
+              <p class="font2">Using databases and fundamental analysis tools, we make your stock picking much easier.
+              </p>
+            </div>
+            <div class="col three left">
+              <h1>Why?</h1>
+              <p class="font2">Through the power of code, we dicided to develop a tool for us investors to make our
+                lives easier. </p>
+
+            </div>
+            <div class="col three left">
+              <h1>Who?</h1>
+              <p class="font2">Dudi</p>
+              <p class="font2">Racheli</p>
+              <p class="font2">Noam</p>
+            </div>
+            <div class="group"></div>
+          </div>
+        </div>
+
+        <!-- renderer -->
+        <script id="stocks-template" type="text/x-handlebars-template">
    {{#each stockData}}
    <div id="stock">
            <div class="col two bg nopad pointer">
@@ -269,17 +278,17 @@
 
 
 
-    <!-- scripts -->
-    <script src="jquery/dist/jquery.js"></script>
-    <script src="handlebars/dist/handlebars.js"></script>
-    <script src="chart.js/dist/Chart.js"></script>
+        <!-- scripts -->
+        <script src="jquery/dist/jquery.js"></script>
+        <script src="handlebars/dist/handlebars.js"></script>
+        <script src="chart.js/dist/Chart.js"></script>
 
-    <script src="./ratioCalculator.js"></script>
-    <script src="./analyzeStocks.js"></script>
-    <script src="ReportComparer.js"></script>
-    <script src="stockManager.js"></script>
-    <script src="render.js"></script>
-    <script src="main.js"></script>
+        <script src="./ratioCalculator.js"></script>
+        <script src="./analyzeStocks.js"></script>
+        <script src="ReportComparer.js"></script>
+        <script src="stockManager.js"></script>
+        <script src="render.js"></script>
+        <script src="main.js"></script>
 
 
 </body>

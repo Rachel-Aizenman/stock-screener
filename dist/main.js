@@ -22,9 +22,9 @@ $("#button").on("click",async function () {
 
 $("body").on("click","#compare",async function () {
     let companyName = $(this).siblings(".feature").text()
-    let stock = stocksManager.stockData.find(s=> s.company === companyName)
-    let compared = reportComparer.compareReports(stock)
-    console.log(compared)
+    const data=await stocksManager.compareReports(companyName)
+    renderer.renderComparison(data)
+})
 
 
 $("a").on('click',function(){
@@ -36,7 +36,3 @@ $("a").on('click',function(){
 
 })
  loadPage()
-
-
-
-
