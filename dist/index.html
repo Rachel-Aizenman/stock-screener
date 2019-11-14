@@ -9,7 +9,6 @@
   <script src="https://kit.fontawesome.com/fdd0ae1583.js" crossorigin="anonymous"></script>
 
   <!-- <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.min.js" -->
-    media="screen,projection" />
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,20 +20,10 @@
       <div class="container">
         <ul class="nav">
           <li><a href="#">Please Enter Stock Ticker:</a></li>
-          <!-- <li><div id="search" href="#"> -->
-            
-            <li><form action="#" method="post"></form>
-
-              <input type="text" id="stockSearch" required value="search" onBlur="if(this.value=='')this.value='search'"
-                onFocus="if(this.value=='search')this.value='' ">
-              <input type="hidden" value="">      </li>
-
-              <li><button id ="button">Search</button></li>
-        
-
-            </form>
-          </div></li>
-        </ul>
+        <li><input id="searchbox" placeholder="search"></li>
+        <li><div id="search-button"><i class="fas fa-search"></i></div></li>
+  
+      </ul>
        
       </div>
     </div>
