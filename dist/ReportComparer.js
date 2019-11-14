@@ -12,9 +12,8 @@ class ReportComparer {
         let keys = Object.keys(this.comparison)
         keys.forEach(key => {
             if (this.comparison[key] >= 1.1 || this.comparison[key] <= 0.9)
-                this.significants[key] = this.comparison[key]
+                this.significants[key] = Math.round(this.comparison[key]*100)/100
         })
-        console.log(this.significants)
         return this.significants
 
     }

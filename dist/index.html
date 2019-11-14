@@ -188,11 +188,15 @@
         </div>
 
         <!-- comparison div -->
-        <div class="section">
+        <!-- <div class="section">
           <div id="report-comparison"></div>
-        </div>
+        </div> -->
         
         <!-- footer -->
+        <div class="section">
+          <h1 id="report"></h1>
+            <div class ="flex-container2"  id="report-comparison"></div>
+        </div>
         <div class="footer">
           <div class="container white">
             <div class="col three left">
@@ -224,7 +228,7 @@
         <!-- renderer -->
         <script id="stocks-template" type="text/x-handlebars-template">
    {{#each stockData}}
-   <div id="stock">
+   <div class="stock">
            <div class="col two bg nopad pointer">
               <h1 class="feature">{{company}}</h1>
               <div id="graph">
@@ -264,9 +268,10 @@
                           <p class="font">Overall - {{ranks.overall}}</p>
                       </div>
                       </div>
-                      <button id ="compare">Compare with last years report</button>
+                      <button class ="compare">Compare with last years report</button>
                       
                  </div>
+            
                  </div>
    {{/each}}
 

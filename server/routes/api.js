@@ -132,7 +132,6 @@ router.get('/stock/:Ticker', async function (req, res) {
         else if (salesKey != -1)
             companyData.income["Revenue"] = companyData.income[incomeKeys[salesKey]]
     }
-    console.log(companyData)
     const stock2DB = new Stock(companyData)
     await stock2DB.save()
     res.send(companyData)
