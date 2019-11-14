@@ -81,10 +81,10 @@ class StockManager {
 
 
     async updatePrices() {
-        data = await $.get('/prices')
+        let data = await $.get('/prices')
         this.stockData.forEach(s => {
-            const updatedStockData = data.find(t => t.name === s.name)
-            s.price = updatedStockData.price
+            let updatedStockData = data.find(t => t.Symbol === s.ticker)
+            s.price = updatedStockData.Price
         })
     }
 }    

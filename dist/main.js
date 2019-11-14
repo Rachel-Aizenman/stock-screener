@@ -13,6 +13,7 @@ const handleSearch = async function(){
 }
 const loadPage = async function  () {
     await stocksManager.getDataFromDB()
+    await stocksManager.updatePrices()
     renderer.renderData(stocksManager.stockData)
 }
 
@@ -25,7 +26,10 @@ $("body").on("click","#compare",async function () {
     const data=await stocksManager.compareReports(companyName)
     renderer.renderComparison(data)
 })
-
+$("#update").on("click",async function () {
+    await stocksManager.updatePrices()
+    renderer.renderData(stocksManager.stockData)
+})
 $("a").on('click',function(){
     const option=($(this).text())
     const criteria=$(this).data().id
