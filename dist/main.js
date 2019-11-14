@@ -19,6 +19,14 @@ const loadPage = async function  () {
 $("#button").on("click",async function () {
     await handleSearch()
 })
+
+$("a").on('click',function(){
+    const option=($(this).text())
+    const criteria=$(this).data().id
+    if(criteria==="leverage"||criteria==="cost"||criteria==="profitability"||criteria==="return")
+        {stocksManager.sortData(option,criteria)
+        renderer.renderData(stocksManager.stockData)}
+})
  loadPage()
 
 
