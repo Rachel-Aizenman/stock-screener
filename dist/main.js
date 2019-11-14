@@ -19,6 +19,12 @@ const loadPage = async function  () {
 $("#button").on("click",async function () {
     await handleSearch()
 })
+$("body").on("click","#compare",async function () {
+    let companyName = $(this).siblings(".feature").text()
+    let stock = stocksManager.stockData.find(s=> s.company === companyName)
+    let compared = reportComparer.compareReports(stock)
+    console.log(compared)
+})
  loadPage()
 
 

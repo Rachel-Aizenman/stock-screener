@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<!-- <head> -->
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Stock Screener</title>
   <script src="https://kit.fontawesome.com/fdd0ae1583.js" crossorigin="anonymous"></script>
 
   <!-- <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/js/materialize.min.js" -->
-    media="screen,projection" />
+    media="s>creen,projection" />
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -74,11 +75,10 @@
           <h1 class="icon dropbtn">
               <i class="fas fa-undo-alt"></i> 
             </h1>
-          <h1 class="service" id="Return">Return</h1>
+          <h1 class="service" id="ROI">Return</h1>
           <div class="dropdown-content">
             <a href="#">High to Low</a>
             <a href="#">Low to High</a>
-            
           </div>
         </div>
 
@@ -86,7 +86,7 @@
           <h1 class="icon dropbtn">
               <i class="fas fa-dollar-sign"></i>
           </h1>
-          <h1 class="service" id="Market-Cap">Cost</h1>
+          <h1 class="service" id="price">Cost</h1>
           <div class="dropdown-content">
               <a href="#">High to Low</a>
               <a href="#">Low to High</a>
@@ -98,7 +98,7 @@
             <h1 class="icon dropbtn">
                 <i class="fas fa-search-dollar"></i>
             </h1>
-            <h1 class="service" id="Market-Cap">Profitability</h1>
+            <h1 class="service" id="profitability">Profitability</h1>
             <div class="dropdown-content">
                 <a href="#">High to Low</a>
                 <a href="#">Low to High</a>
@@ -108,7 +108,7 @@
           <div class="col six dropdown">
               <h1 class="icon dropbtn">
                   <i class="fas fa-balance-scale"></i>              </h1>
-              <h1 class="service" id="filter">Leverage</h1>
+              <h1 class="service" id="leverage">Leverage</h1>
               <div class="dropdown-content">
                   <a href="#">High to Low</a>
                   <a href="#">Low to High</a>
@@ -119,14 +119,13 @@
               <h1 class="icon dropbtn">
                   <i class="fas fa-chart-pie"></i>
               </h1>
-              <h1 class="service" id="Market-Cap">Market-Cap</h1>
+              <h1 class="service" id="marketCap">Market-Cap</h1>
               <div class="dropdown-content">
                 <a href="#">Large</a>
                 <a href="#">Medium</a>
                 <a href="#">Small</a>
                 <a href="#">Micro</a>
                 <a href="#">Med +</a>
-    
               </div>
             </div>
   
@@ -181,25 +180,25 @@
       <!-- footer -->
       <div class="footer">
         <div class="container white">
-          <div class="col four left">
+          <div class="col three left">
             <h1>What?</h1>
-            <p class="font">A fundamental analysis stock screener!</p>
-            <p class="font">Just put your  favorite stock ticker and let the analysis begin!</p>
+            <p class="font2">A fundamental analysis stock screener!</p>
+            <p class="font2">Just put your  favorite stock ticker and let the analysis begin!</p>
           </div>
-          <div class="col four left">
+          <div class="col three left">
             <h1>How?</h1>
-            <p class="font">Using databases and fundamental analysis tools, we make your stock picking much easier.</p>
+            <p class="font2">Using databases and fundamental analysis tools, we make your stock picking much easier.</p>
           </div>
-          <div class="col four left">
+          <div class="col three left">
             <h1>Why?</h1>
-            <p class="font">Through the power of code, we dicided to develop a tool for us investors to make our lives easier. </p>
+            <p class="font2">Through the power of code, we dicided to develop a tool for us investors to make our lives easier. </p>
             
           </div>
-          <div class="col four left">
+          <div class="col three left">
             <h1>Who?</h1>
-            <p class="font">Dudi</p>
-            <p class="font">Racheli</p>
-            <p class="font">Noam</p>
+            <p class="font2">Dudi</p>
+            <p class="font2">Racheli</p>
+            <p class="font2">Noam</p>
           </div>
           <div class="group"></div>
         </div>
@@ -223,7 +222,7 @@
                     <p class="font">Price - {{price}}</p>
                     <p class="font">Volume - {{volume}}</p>
                     <p class="font">Dividend - {{dividend}}</p>
-
+                    <p class="font">Market Cap - {{marketCap}} </p>
                     </div>
                  
                     <div class="ratios card">
@@ -248,6 +247,7 @@
                           <p class="font">Overall - {{ranks.overall}}</p>
                       </div>
                       </div>
+                      <button id ="compare">Compare with last years report</button>
                  </div>
                  </div>
    {{/each}}
