@@ -13,7 +13,7 @@
     "configure": "0.0.1",
     "core-util-is": "^1.0.2",
     "express": "^4.17.1",
-    "handlebars": "^4.5.1",
+    "handlebars": "^4.5.3",
     "jquery": "^3.4.1",
     "jquery.flot": "^0.8.3",
     "jshint": "^2.10.3",
