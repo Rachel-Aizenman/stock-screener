@@ -22,7 +22,8 @@
     "negotiator": "^0.6.2",
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "serve-favicon": "^2.5.0"
   },
   "repository": {
     "type": "git",
