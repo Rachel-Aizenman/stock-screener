@@ -3,6 +3,8 @@ const app = express()
 const path = require('path')
 const api = require('./routes/api')
 const bodyParser = require('body-parser')
+const favicon = require("serve-favicon");
+app.use(favicon(path.join('public','favicon.ico')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, "..", 'dist')))
